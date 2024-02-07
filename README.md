@@ -29,18 +29,9 @@
 ![ERD](https://github.com/zynbahmed/musicApp/assets/59283661/e3d94401-586f-45e9-911e-6e11ad4db42a)
 
 ##### Wireframes
-<div align="center">
-  <pre>
-    <img src="screenshots/" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/" height="500" />
-  </pre>
-</div>
+![Wireframes](https://github.com/zynbahmed/musicApp/assets/59283661/e49c2cb3-5a39-4751-83ad-141103e83903)
 
 ##### App Screenshots
-<div align="center">
-  <pre>
-<!--     <img src="screenshots/homePage.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/easyPage.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/medPage.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/hardPage.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/youWon.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/gameOver.png" height="500" /> -->
-  </pre>
-</div>
 
 ***
 ### ***What Have I learned***
