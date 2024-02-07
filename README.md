@@ -25,6 +25,9 @@
 ***
 
 ### ***Screenshots***
+##### ERD 
+![ERD](https://github.com/zynbahmed/musicApp/assets/59283661/e3d94401-586f-45e9-911e-6e11ad4db42a)
+
 ##### Wireframes
 <div align="center">
   <pre>
