@@ -4,7 +4,6 @@ const artistsCtrl = require('../controllers/artists')
 
 router.get('/artists/new', artistsCtrl.new)
 router.post('/artists', artists.create)
-//check cast connection
-router.post('/albums/:id/artists', artistsCtrl.addToCast)
+router.post('/albums/:id/artists', artistsCtrl.addToArtist)
 
 module.exports = router
