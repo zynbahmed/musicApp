@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<form action="/posts"  method="POST"></form>
+<input type="text" name="post" >
+<button type="submit">POST</button>
+
+<% posts.forEach(post => { %> 
+
+<div>post.poster</div>
+
+  <% }) %>
+
+  
+<%- include('../partials/footer') %>
