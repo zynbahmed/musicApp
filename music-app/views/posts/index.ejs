@@ -5,10 +5,16 @@
 <button type="submit">POST</button>
 </form>
 
+
+
 <% posts.forEach(post => { %> 
 
-<div> <%= post.poster %></div>
-
+<div> <%= post.poster %>
+  <form action="/posts/<%= post._id %>"?_method=DELETE method="POST">
+    <button type="submit">X</button>
+    </form>
+</div>
+ 
   <% }) %>
 
   
