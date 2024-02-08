@@ -29,7 +29,7 @@
 ![ERD](https://github.com/zynbahmed/musicApp/assets/59283661/e3d94401-586f-45e9-911e-6e11ad4db42a)
 
 ##### Wireframes
-![Wireframes](https://app.diagrams.net/#G1CzOFRLFd0nUCI8pDkLMOX8xdjYolrTKc))
+![Wireframe](https://github.com/zynbahmed/musicApp/assets/59283661/63cd6143-f215-404e-9ece-686562e824d1)
 
 ##### App Screenshots
 
