@@ -1,6 +1,6 @@
 # Music App
 ## Date: 8/2/2024
-### By: Ahmed RAli | Zahra'a Ali | Zainab Ahmed
+### By: Ahmed RAli | Zahraa Ali | Zainab Ahmed
 
 ***
 
