@@ -3,7 +3,8 @@ const Post = require("../models/post")
 const index = async (req,res) => {
 try {
 const posts = await Post.find({})
-res.render('/posts/index',{posts})
+console.log("allpost",posts)
+res.render('posts/index',{posts})
 ///sort by time 
 }catch (error){
     console.log(error)
@@ -12,6 +13,7 @@ res.render('/posts/index',{posts})
 
 const creatPost = async (req,res) => {
     try {
+        //console.log("req.body.post ",req.body.post)
         await Post.create(req.body)
         await Post.save()
      }catch (error){
@@ -22,6 +24,6 @@ const creatPost = async (req,res) => {
 
 
 module.exports = { 
-    postsCtrl,
+    index,
     creatPost
 }
