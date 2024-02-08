@@ -19,7 +19,7 @@
 
 ### ***Getting Started***
 
-##### A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/invite/b/xBSQjTRQ/ATTI266b5ab7deff4f4c60b117908c117ac442C2296E/music).
+##### A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/b/xBSQjTRQ/music).
 ##### The project was deployed and can be viewed [here]().
 
 ***
