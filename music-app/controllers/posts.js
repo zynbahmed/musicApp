@@ -73,6 +73,8 @@ await post.save()
 }
 res.redirect("/posts")
 }
+
+
 // Like
 const like =async (req, res) => {
   try {
