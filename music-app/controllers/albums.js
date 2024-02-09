@@ -10,7 +10,7 @@ const show = async (req, res) => {
 }
 
 const newAlbum = (req, res) => {
-
+    res.render('albums/new', { title: 'Add Album' });
 }
 
 const create = async (req, res) => {
