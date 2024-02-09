@@ -10,7 +10,10 @@
 <% posts.forEach(post => { %> 
 
 <div> <%= post.poster %>
-  <form action="/posts/<%= post._id %>"?_method=DELETE method="POST">
+ <img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %>
+
+      <%= post.createdAt.toLocaleDateString() %>
+  <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
     <button type="submit">X</button>
     </form>
 </div>
