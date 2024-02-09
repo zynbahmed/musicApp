@@ -2,11 +2,11 @@ const Artist = require('../models/artist')
 const Alubum = require('../models/album')
 
 async function newArtist(req, res) {
-  const artists = await artist.find({}).sort('name')
+  const artists = await Artist.find({}).sort('name')
   res.render('artists/new', { title: 'Add Artist', artists })
 }
 
-async function create(req, res) {
+async function createArtist(req, res) {
   try {
     await Artist.create(req.body)
   } catch (err) {
@@ -29,6 +29,6 @@ const addToArtist = async (req, res) => {
 
 module.exports = {
   new: newArtist,
-  create,
+  createArtist,
   addToArtist
 }
