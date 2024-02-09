@@ -9,7 +9,7 @@ const postSchema= new Schema ({
         required: true
       },
       userName: String,
-      userAvatar: String
+      userAvatar: String,
     }, {
       timestamps: true
 

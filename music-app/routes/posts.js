@@ -6,5 +6,6 @@ router.get('/posts',postsCtrl.index)
 router.post('/posts',postsCtrl.creatPost)
 router.delete('/posts/:id',postsCtrl.deletePost)
 
-
+router.post('/posts/:id/like',postsCtrl.like)
+router.put('/posts/:id',postsCtrl.editPost)
 module.exports = router;

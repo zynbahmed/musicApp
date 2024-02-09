@@ -28,16 +28,18 @@ const creatPost = async (req, res) => {
 
 const deletePost = async (req,res) => {
   try {
-//const post = await Post.findOne({ 'post._id': req.params.id})
 const post = await Post.findById(req.params.id)
-console.log(" postdeleter ",post)
-
-//if (post.user=== req.)
-await Post.deleteOne({_id:req.params.id})
-//await post.save()
-res.redirect('/posts')
 if (!post) {return res.redirect('/')}
-
+//const userId = await User.find
+// const a=post.user
+// const b=  req.user._id
+// console.log("post.user",post.user)
+// console.log("req.body.user",req.user._id)
+// console.log(a === b)
+// if (a == b){
+//await Post.deleteOne({_id:req.params.id})
+await post.deleteOne()
+res.redirect('/posts')
 
 
   }catch (error){
@@ -45,6 +47,8 @@ if (!post) {return res.redirect('/')}
     res.redirect('/')
   }
 }
+
+
 const editPost = async (req,res)=> {
 try {
 const post = await Post.findById(req.params.id)
@@ -54,10 +58,28 @@ await post.updateOne({$set:req.body})
 }catch (erroe){
 
 }
+
 }
+// Like
+const like =async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).json({ message: 'post not found' });
+    }
+    post.likes += 1;
+    await post.save();
+    res.json({ message: 'post liked', likes: post.likes });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+}
+
+
 module.exports = {
   index,
   creatPost,
   deletePost,
-  editPost
+  editPost,
+  like
 }
