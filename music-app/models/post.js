@@ -10,6 +10,9 @@ const postSchema= new Schema ({
       },
       userName: String,
       userAvatar: String,
+      like: {type: Array,
+              default:[]
+      },
     }, {
       timestamps: true
 
