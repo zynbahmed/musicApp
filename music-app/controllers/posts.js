@@ -48,17 +48,30 @@ res.redirect('/posts')
   }
 }
 
+const edit = async (req,res) => {
+  try {
+      const post = await Post.findById(req.params.id)
+      res.render('posts/edit',{post})
+  }
+  catch(error){
+
+  }
+}
 
 const editPost = async (req,res)=> {
 try {
+console.log(req.body)
 const post = await Post.findById(req.params.id)
 await post.updateOne({$set:req.body})
+await post.save()
+
 //if (post.user === req.body.User.id)
+//post.poster=req.body.poster
 
 }catch (erroe){
 
 }
-
+res.redirect("/posts")
 }
 // Like
 const like =async (req, res) => {
@@ -81,5 +94,6 @@ module.exports = {
   creatPost,
   deletePost,
   editPost,
-  like
+  like,
+  edit
 }
