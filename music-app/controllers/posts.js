@@ -1,4 +1,5 @@
 const Post = require('../models/post')
+const User=require('../models/user')
 
 const index = async (req, res) => {
   try {
@@ -44,9 +45,19 @@ if (!post) {return res.redirect('/')}
     res.redirect('/')
   }
 }
+const editPost = async (req,res)=> {
+try {
+const post = await Post.findById(req.params.id)
+await post.updateOne({$set:req.body})
+//if (post.user === req.body.User.id)
 
+}catch (erroe){
+
+}
+}
 module.exports = {
   index,
   creatPost,
-  deletePost
+  deletePost,
+  editPost
 }
