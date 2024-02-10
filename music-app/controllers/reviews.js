@@ -1,5 +1,9 @@
 const Review=require('../models/review')
 
+const addReview = (req,res) =>{
+res.render('reviews/add')
+}
+
 
 const creatReview = async (req, res) => {
     try {
@@ -12,3 +16,6 @@ const creatReview = async (req, res) => {
     res.redirect('/posts')
   }
 
+module.exports = {
+
+}
