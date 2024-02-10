@@ -16,7 +16,10 @@ const albumSchema = new Schema({
         type: String, 
         required: true 
     },
-    artist: { type: Schema.Types.ObjectId, ref: 'Artist' },
+    artist: { 
+      type: String,
+      required: true
+     },
     releaseYear: {
       type: Number,
       default: function() {

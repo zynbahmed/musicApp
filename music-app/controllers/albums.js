@@ -12,11 +12,12 @@ const show = async (req, res) => {
 }
 
 const newAlbum = async (req, res) => {
-//     const album = await Album.findById(req.params.id).populate('artist');
-//     const artists = await Artist.find({});
-//     const albumArtist = album.artist;
-//     //create a new array of just the names from the albumArtist
-//     const artistsNames = albumArtist.map((artistsMembers) => artistsMembers.name);
+    // const artists = await Artist.findById(req.params.id).populate('name');
+    // const artists = await Artist.find({ _id: { $nin: album.artist } }).sort('name');
+
+    // const albumArtist = album.artist;
+    //create a new array of just the names from the albumArtist
+    // const artistsNames = albumArtist.map((artistsMembers) => artistsMembers.name);
    
 //     const availableArtists = artists.filter((artist)=> {
 //     console.log(typeof artist._id)
