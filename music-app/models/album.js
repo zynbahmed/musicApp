@@ -2,12 +2,24 @@ const mongoose = require('mongoose');
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
+const songSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  }
+}, {
+  timestamps: true
+});
+
 const albumSchema = new Schema({
     title: { 
         type: String, 
         required: true 
     },
-    artist: { type: Schema.Types.ObjectId, ref: 'Artist' },
+    artist: { 
+      type: String,
+      required: true
+     },
     releaseYear: {
       type: Number,
       default: function() {
@@ -23,6 +35,7 @@ const albumSchema = new Schema({
         type: String, 
         required: true
     },
+    songs: [songSchema]
   }, {
     timestamps: true
   });

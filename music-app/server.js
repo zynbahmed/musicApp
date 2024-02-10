@@ -10,6 +10,7 @@ const passport = require('passport')
 var indexRouter = require('./routes/index')
 var albumsRouter = require('./routes/albums')
 const artistsRouter = require('./routes/artists')
+const songsRouter = require('./routes/songs')
 
 var app = express()
 require('dotenv').config()
@@ -42,6 +43,7 @@ app.use('/', indexRouter)
 app.use('/albums', albumsRouter)
 app.use('/', require('./routes/posts'))
 app.use('/',artistsRouter)
+app.use('/',songsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

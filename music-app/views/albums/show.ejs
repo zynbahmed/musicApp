@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+
+<section>
+  <div>Title: </div>
+  <div><%= album.title %></div>
+  <div>Artist: </div>
+  <div><%= album.artist %></div>
+  <div>Release Year: </div>
+  <div><%= album.releaseYear %></div>
+  <div>Genre: </div>
+  <div><%= album.genre %></div>
+  <div><a href="<%= album.link %>">Listen on Spotify</a></div>
+</section>
+<% if (album.songs.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Songs Name:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% album.songs.forEach((s) => { %>
+          <tr>
+            <td><%= s.name %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Songs Yet</h5>
+  <% } %>
+  <% if(user) { %>
+    <br><br><h2>Songs</h2>
+    <form method="POST" action="/albums/<%= album._id %>/songs">
+        <label>Song Name:</label>
+        <input name="name"></input>
+        <input type="submit" value="Add Song">
+    </form>
+<% } %>
+<%- include('../partials/footer') %>
