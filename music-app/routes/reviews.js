@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const reviewCtrl =  require('../controllers/reviews')
 
-router.get('/review/add',postsCtrl.addReview)
+router.get('/albums/:id/reviews/add',reviewCtrl.addReview)
+router.post('/albums/:id/reviews',reviewCtrl.creatReview)
 
 
 

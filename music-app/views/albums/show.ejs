@@ -37,4 +37,20 @@
         <input type="submit" value="Add Song">
     </form>
 <% } %>
+
+<section>
+  <a href="/albums/<%= album._id %>/reviews/add">Add Review</a>
+  <% if (album.reviews.length) { %> 
+    <h3>Reviews</h3>
+    <ul>
+      <% album.reviews.forEach((review) => { %>
+        <li><%= review.content %></li>
+        <li><%= review.rating %></li>
+
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <h5>No Reviews Yet</h5>
+  <% } %>
+</section>
 <%- include('../partials/footer') %>

@@ -1,5 +1,6 @@
 const Album = require('../models/album');
 const Artist = require('../models/artist');
+const Review =require('../models/review');
 
 const index = async (req, res) => {
     const albums = await Album.find({});
@@ -7,7 +8,7 @@ const index = async (req, res) => {
 }
 
 const show = async (req, res) => {
-    const album = await Album.findById(req.params.id);
+    const album = await Album.findById(req.params.id).populate('reviews');
     res.render('albums/show', { title: 'Album Detail', album });
 }
 

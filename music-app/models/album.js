@@ -35,7 +35,8 @@ const albumSchema = new Schema({
         type: String, 
         required: true
     },
-    songs: [songSchema]
+    songs: [songSchema],
+    reviews:  [{ type: Schema.Types.ObjectId, ref: 'Review' }],
   }, {
     timestamps: true
   });
