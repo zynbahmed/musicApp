@@ -5,7 +5,7 @@ const albumsCtrl = require('../controllers/albums');
 // GET /albums
 router.get('/', albumsCtrl.index);
 // GET /albums/new
-router.get('/new', albumsCtrl.new);
+router.get('/new', albumsCtrl.newAlbum);
 // GET /albums/:id (show functionality) MUST be below new route
 router.get('/:id', albumsCtrl.show);
 // POST /albums
