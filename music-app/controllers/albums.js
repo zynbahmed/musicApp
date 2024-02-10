@@ -7,6 +7,8 @@ const index = async (req, res) => {
 }
 
 const show = async (req, res) => {
+    const album = await Album.findById(req.params.id);
+    res.render('albums/show', { title: 'Album Detail', album });
 }
 
 const newAlbum = async (req, res) => {
@@ -26,12 +28,21 @@ const newAlbum = async (req, res) => {
 }
 
 const create = async (req, res) => {
-
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
+    try {
+        await Album.create(req.body);
+        res.redirect('/albums');  
+    } catch (err) {
+        console.log(err);
+        res.render('albums/new', { errorMsg: err.message });
+    }
 }
 
 module.exports = {
     index,
     show,
-    new: newAlbum,
+    newAlbum,
     create
   };
