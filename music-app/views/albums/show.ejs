@@ -40,8 +40,10 @@
 
 <section>
   <h3>Reviews</h3>
-
-  <a href="/albums/<%= album._id %>/reviews/add">Add Review</a>
+  <% if (user) { %>
+    <a href="/albums/<%= album._id %>/reviews/add">Add Review</a>
+      <% } %>
+ 
 
   <% if (album.reviews.length) { %> 
     
