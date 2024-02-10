@@ -39,13 +39,15 @@
 <% } %>
 
 <section>
+  <h3>Reviews</h3>
+
   <a href="/albums/<%= album._id %>/reviews/add">Add Review</a>
+
   <% if (album.reviews.length) { %> 
-    <h3>Reviews</h3>
+    
     <ul>
       <% album.reviews.forEach((review) => { %>
-        <li><%= review.content %></li>
-        <li><%= review.rating %></li>
+        <li><img alt="avatar" src="<%= review.userAvatar %>" referrerpolicy="no-referrer" ><%= review.content %> <%= review.rating %> <%= review.userName %></li>
 
       <% }); %>
     </ul>

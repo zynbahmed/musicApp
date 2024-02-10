@@ -24,7 +24,6 @@ const creatReview = async (req, res) => {
      await album.save()
     console.log('newReview._id',newReview._id)
     res.redirect('/albums/'+req.params.id)
-      //await Post.save()
     } catch (error) {
       console.log(error)
       res.redirect('/')
