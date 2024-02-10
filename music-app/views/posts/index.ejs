@@ -14,12 +14,16 @@
 
       <%= post.createdAt.toLocaleDateString() %>
       <% if (user?._id.equals(post.user)) { %>
-  <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-    <button type="submit">X</button>
-    </form>
+
+    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+      <button type="submit">X</button>
+      </form>
     <a href="/posts/<%= post._id %>/edit">EDIT</a>
   
     <% } %>
+    <form action="/posts/<%= post._id %>/like" method="POST">
+      <button type="submit">Like</button>
+      </form><%= post.like.length %>
 </div>
  
   <% }) %>
