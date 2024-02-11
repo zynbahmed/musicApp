@@ -8,6 +8,7 @@ router.delete('/posts/:id',postsCtrl.deletePost)
 router.get('/posts/:id/edit',postsCtrl.edit)
 router.put('/posts/:id',postsCtrl.editPost)
 
-
 router.post('/posts/:id/like',postsCtrl.like)
+router.post('/posts/:id/comments',postsCtrl.addComment)
+
 module.exports = router;
