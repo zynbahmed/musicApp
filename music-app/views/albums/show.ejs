@@ -39,7 +39,7 @@
 <% } %>
 
 <section>
-  <h3>Reviews</h3>
+  <h3>Reviews <%= averageRating %> </h3>
   <% if (user) { %>
     <a href="/albums/<%= album._id %>/reviews/add">Add Review</a>
       <% } %>
