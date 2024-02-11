@@ -13,6 +13,10 @@ const postSchema= new Schema ({
       like: {type: Array,
               default:[]
       },
+      comment: {
+        type: Schema.Types.ObjectId,
+        ref: 'Comment',
+      },
     }, {
       timestamps: true
 
