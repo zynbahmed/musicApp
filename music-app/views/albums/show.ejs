@@ -1,6 +1,12 @@
 <%- include('../partials/header') %>
 
 <section>
+  <% if(user) { %>
+  <a href="/albums/<%= album._id %>/edit">Edit</a>
+  <form method="POST" action="/albums/<%= album._id %>?_method=DELETE">
+    <button type="submit">Delete</button>
+  </form>
+  <% } %>
   <div>Title: </div>
   <div><%= album.title %></div>
   <div>Artist: </div>

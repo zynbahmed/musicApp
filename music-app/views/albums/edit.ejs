@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<section>
+    <h2>Edit Album</h2>
+    <form method="POST" action="/albums/<%= album._id %>?_method=PUT">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%= album.title %>" required>
+        
+        <label for="artist">Artist:</label>
+        <select id="artist" name="artist" required>
+            <% artists.forEach((artist) => { %>
+                <option value="<%= artist._id %>" <%= (album.artist && album.artist._id.equals(artist._id)) ? 'selected' : '' %>><%= artist.name %></option>
+            <% }); %>
+        </select>
+
+        <label for="releaseYear">Release Year:</label>
+        <input type="number" id="releaseYear" name="releaseYear" value="<%= album.releaseYear %>" min="1927">
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" value="<%= album.genre %>" required>
+
+        <label for="link">Spotify Link:</label>
+        <input type="text" id="link" name="link" value="<%= album.link %>" required>
+
+        <!-- Add other fields or modify as needed -->
+
+        <button type="submit">Update Album</button>
+    </form>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,7 +1,6 @@
 const Album = require('../models/album');
 const Artist = require('../models/artist');
-const review = require('../models/review');
-const Review =require('../models/review');
+const Review = require('../models/review');
 
 const index = async (req, res) => {
     const albums = await Album.find({}).populate('artist', 'name');
@@ -54,10 +53,44 @@ const albumsByArtist = async (req, res) => {
     }
   };
 
+  const editAlbum = async (req, res) => {
+    try {
+        const album = await Album.findById(req.params.id).populate('artist');
+        const artists = await Artist.find();
+        res.render('albums/edit', { title: 'Edit Album', album, artists });
+    } catch (error) {
+        console.error(error);
+        res.redirect('/albums'); // Redirect to a relevant page in case of an error
+    }
+}
+
+const updateAlbum = async (req, res) => {
+    try {
+        const album = await Album.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.redirect(`/albums/${album._id}`);
+    } catch (error) {
+        console.error(error);
+        res.redirect(`/albums/${req.params.id}/edit`);
+    }
+}
+
+const deleteAlbum = async (req, res) => {
+  try {
+      await Album.findByIdAndDelete(req.params.id);
+      res.redirect('/albums');
+  } catch (error) {
+      console.error(error);
+      res.redirect(`/albums/${req.params.id}`);
+  }
+}
+
 module.exports = {
     index,
     show,
     newAlbum,
     create,
-    albumsByArtist
+    albumsByArtist,
+    editAlbum,
+    updateAlbum,
+    deleteAlbum
   };
