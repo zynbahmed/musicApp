@@ -13,5 +13,11 @@ router.get('/artists/:artistId/albums', albumsCtrl.albumsByArtist);
 
 // POST /albums
 router.post('/', albumsCtrl.create);
+
+// GET /albums/:id/edit
+router.get('/:id/edit', albumsCtrl.editAlbum);
+
+// PUT /albums/:id
+router.put('/:id', albumsCtrl.updateAlbum);
 	
 module.exports = router;

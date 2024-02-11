@@ -53,10 +53,34 @@ const albumsByArtist = async (req, res) => {
     }
   };
 
+  const editAlbum = async (req, res) => {
+    try {
+        const album = await Album.findById(req.params.id).populate('artist');
+        const artists = await Artist.find();
+        res.render('albums/edit', { title: 'Edit Album', album, artists });
+    } catch (error) {
+        console.error(error);
+        res.redirect('/albums'); // Redirect to a relevant page in case of an error
+    }
+}
+
+const updateAlbum = async (req, res) => {
+    try {
+        const album = await Album.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.redirect(`/albums/${album._id}`);
+    } catch (error) {
+        console.error(error);
+        res.redirect(`/albums/${req.params.id}/edit`);
+    }
+}
+
+
 module.exports = {
     index,
     show,
     newAlbum,
     create,
-    albumsByArtist
+    albumsByArtist,
+    editAlbum,
+    updateAlbum
   };
