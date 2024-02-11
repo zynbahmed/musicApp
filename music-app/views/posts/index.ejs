@@ -28,6 +28,11 @@
 
       <% post.comment.forEach(c => { %> 
         <%= c.comment %>
+        <%= c.createdAt.toLocaleDateString() %>
+        
+ <img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %>
+      
+        
         
       <% }) %>
 
