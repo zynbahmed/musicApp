@@ -1,5 +1,6 @@
 const Album = require('../models/album');
 const Artist = require('../models/artist');
+const review = require('../models/review');
 const Review =require('../models/review');
 
 const index = async (req, res) => {
@@ -12,7 +13,13 @@ const show = async (req, res) => {
     const album = await Album.findById(req.params.id)
       .populate('artist')
       .populate('reviews');
-    res.render('albums/show', { title: 'Album Detail', album });
+    const allrating = album.reviews.map(review => review.rating)
+    const sum = allrating.reduce((accumulator, val) => {
+        return accumulator + val;
+    }, 0);
+    const averageRating= Math.round(sum/allrating.length) 
+
+    res.render('albums/show', { title: 'Album Detail', album ,averageRating });
 }
 
 const newAlbum = async (req, res) => {
