@@ -22,7 +22,7 @@ const creatReview = async (req, res) => {
     const album=await Album.findById(req.params.id)
      album.reviews.push(newReview._id)
      await album.save()
-    console.log('newReview._id',newReview._id)
+    //console.log('newReview._id',newReview._id)
     res.redirect('/albums/'+req.params.id)
     } catch (error) {
       console.log(error)
