@@ -4,7 +4,7 @@
   <div>Title: </div>
   <div><%= album.title %></div>
   <div>Artist: </div>
-  <div><%= album.artist ? album.artist.name : 'Unknown Artist' %></div>
+  <div><a href="/albums/artists/<%= album.artist._id %>/albums"><%= album.artist ? album.artist.name : 'Unknown Artist' %></a></div>
   <div>Release Year: </div>
   <div><%= album.releaseYear %></div>
   <div>Genre: </div>

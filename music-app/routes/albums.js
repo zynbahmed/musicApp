@@ -8,6 +8,9 @@ router.get('/', albumsCtrl.index);
 router.get('/new', albumsCtrl.newAlbum);
 // GET /albums/:id (show functionality) MUST be below new route
 router.get('/:id', albumsCtrl.show);
+
+router.get('/artists/:artistId/albums', albumsCtrl.albumsByArtist);
+
 // POST /albums
 router.post('/', albumsCtrl.create);
 	
