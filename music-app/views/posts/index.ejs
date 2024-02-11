@@ -12,7 +12,7 @@
 <div> <%= post.poster %>
  <img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %>
 
-      <%= post.createdAt.toLocaleDateString() %>
+ <%= (post.createdAt) %>
       <% if (user?._id.equals(post.user)) { %>
 
     <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
