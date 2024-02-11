@@ -13,7 +13,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: #fafdff;
-  padding: 10px;
+  padding: auto;
   font-size: x-large;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -30,6 +30,7 @@ nav .logo img {
 nav .menu-items {
   display: flex;
   align-items: center;
+  margin-left: auto; /* Fixes the menu to the right */
 }
 
 nav .menu-items a {
@@ -82,4 +83,17 @@ nav .divider {
 
 #list td a:hover {
   color: #c6aec8;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.album-menu:hover .submenu {
+  display: block;
 }
