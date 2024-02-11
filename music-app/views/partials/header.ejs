@@ -13,13 +13,18 @@
         </div>
         <div class="menu-items">
             <div class="divider"></div>
-            <a href="/albums"> ALBUMS </a>
+            <div class="album-menu"> 
+                ALBUMS 
+                <div class="submenu">
+                    <a href="/albums/new">Add Album</a>
+                    <a href="/albums">Show All</a>
+                </div>
+            </div>
             <% if (user) { %>
                 <div class="divider"></div>
                 <a href="/posts">POSTS</a>
                 <div class="divider"></div>
-                <a href="/albums/new">ADD ALBUMS</a>
-                <div class="divider"></div>
+                <!-- Remove the "Add Albums" link from here -->
                 <a href="/artists/new">ARTISTS</a>
                 <div class="divider"></div>
                 <a href="/logout">LOG OUT</a>
