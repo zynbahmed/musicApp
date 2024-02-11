@@ -12,7 +12,7 @@
 <div> <%= post.poster %>
  <img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %>
 
-      <%= post.createdAt.toLocaleDateString() %>
+ <%= getTimeAgo(post.createdAt) %>
       <% if (user?._id.equals(post.user)) { %>
 
     <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
@@ -24,9 +24,51 @@
     <form action="/posts/<%= post._id %>/like" method="POST">
       <button type="submit">Like</button>
       </form><%= post.like.length %>
+
+
+      <% post.comment.forEach(c => { %> 
+        <%= c.comment %>
+        <%= c.createdAt.toLocaleDateString() %>
+        
+ <img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %>
+      
+        
+        
+      <% }) %>
+
+      <form action="/posts/<%= post._id %>/comments" method="POST">
+      <input type="text" name="comment">
+      <button type="submit">send</button>
+      </form>
 </div>
  
   <% }) %>
 
+  <%
+  function getTimeAgo(timestamp) {
+    const now = new Date();
+    const timeElapsed = now - timestamp;
   
+    // Calculate time differences in milliseconds
+    const minute = 60 * 1000;
+    const hour = 60 * minute;
+    const day = 24 * hour;
+    const month = 30 * day;
+    const year = 365 * day;
+  
+    if (timeElapsed < minute) {
+      return Math.floor(timeElapsed / 1000) + ' seconds ago';
+    } else if (timeElapsed < hour) {
+      return Math.floor(timeElapsed / minute) + ' minutes ago';
+    } else if (timeElapsed < day) {
+      return Math.floor(timeElapsed / hour) + ' hours ago';
+    } else if (timeElapsed < month) {
+      return Math.floor(timeElapsed / day) + ' days ago';
+    } else if (timeElapsed < year) {
+      return Math.floor(timeElapsed / month) + ' months ago';
+    } else {
+      return Math.floor(timeElapsed / year) + ' years ago';
+    }
+  }
+  %>
 <%- include('../partials/footer') %>

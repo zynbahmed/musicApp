@@ -1,9 +1,11 @@
 const Post = require('../models/post')
 const User=require('../models/user')
+const Comment= require('../models/comment')
 
 const index = async (req, res) => {
   try {
-    const posts = await Post.find({})
+    const posts = await Post.find({}).populate('comment')
+    //posts.updateMany
     res.render('posts/index', { posts })
     ///sort by time
   } catch (error) {
@@ -17,6 +19,7 @@ const creatPost = async (req, res) => {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
+
     await Post.create(req.body)
   
     //await Post.save()
@@ -96,31 +99,30 @@ const like =async (req, res) => {
   }
 }
 
-function getTimeAgo(timestamp) {
-  const now = new Date();
-  const timeElapsed = now - timestamp;
 
-  // Calculate time differences in milliseconds
-  const minute = 60 * 1000;
-  const hour = 60 * minute;
-  const day = 24 * hour;
-  const month = 30 * day;
-  const year = 365 * day;
+const  addComment  =async (req,res) =>{
+    const post = await Post.findById(req.params.id).populate('comment')
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+    const comment = await Comment.create(req.body)
+    post.comment.push(comment._id)
+    await post.save()
 
-  if (timeElapsed < minute) {
-    return Math.floor(timeElapsed / 1000) + ' seconds ago';
-  } else if (timeElapsed < hour) {
-    return Math.floor(timeElapsed / minute) + ' minutes ago';
-  } else if (timeElapsed < day) {
-    return Math.floor(timeElapsed / hour) + ' hours ago';
-  } else if (timeElapsed < month) {
-    return Math.floor(timeElapsed / day) + ' days ago';
-  } else if (timeElapsed < year) {
-    return Math.floor(timeElapsed / month) + ' months ago';
-  } else {
-    return Math.floor(timeElapsed / year) + ' years ago';
-  }
+    console.log("post",post)
+    res.redirect('/posts')
+
+
+    
+
+
 }
+
+
+
+
+
+
 
 
 module.exports = {
@@ -129,5 +131,6 @@ module.exports = {
   deletePost,
   editPost,
   like,
-  edit
+  edit,
+  addComment
 }
