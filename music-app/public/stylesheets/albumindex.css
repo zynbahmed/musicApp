@@ -1,4 +1,8 @@
+/* Updated CSS code */
+
+/* Body styles */
 body {
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,42 +12,52 @@ body {
   padding: 0;
 }
 
+/* Navigation styles */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fafdff;
-  padding: auto;
-  font-size: x-large;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color: #c6aec8;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-nav .logo {
-  margin-right: auto;
+.nav-container {
+  width: 80%;
 }
 
 nav .logo img {
-  max-width: 30%;
+  max-width: 100%;
   height: auto;
 }
 
 nav .menu-items {
   display: flex;
   align-items: center;
-  margin-left: auto; /* Fixes the menu to the right */
+  color: #211423;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+nav .menu-items :hover {
+  color: #5e3193;
 }
 
 nav .menu-items a {
   margin: 0 10px;
   text-decoration: none;
   color: #211423;
+  font-weight: bold;
   transition: color 0.3s;
 }
 
 nav .menu-items a:hover {
-  color: #c6aec8;
+  color: #5e3193;
 }
 
+/* Divider styles */
 nav .divider {
   width: 2px;
   height: 20px;
@@ -51,6 +65,7 @@ nav .divider {
   margin: 0 10px;
 }
 
+/* Header styles */
 #header {
   display: flex;
   justify-content: center;
@@ -58,6 +73,7 @@ nav .divider {
   margin-top: 30px;
 }
 
+/* List styles */
 #list {
   margin-top: 30px;
   border-collapse: collapse;
@@ -79,12 +95,14 @@ nav .divider {
 #list td a {
   color: #211423;
   text-decoration: none;
+  font-weight: bold;
 }
 
 #list td a:hover {
   color: #c6aec8;
 }
 
+/* Submenu styles */
 .submenu {
   display: none;
   position: absolute;
