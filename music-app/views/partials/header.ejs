@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/albums">Albums</a>
+        <% if (user) { %>
+            <a href="/posts">POSTS</a>
+            <a href="/albums/new">Add Albums</a>
+            <a href="/artists/new">Artists</a>
+            <a href="/logout">LOG OUT</a>
+        <% } else { %>
+            <a href="/auth/google">LOG IN&nbsp;</a>
+        <% } %>
+    </nav>

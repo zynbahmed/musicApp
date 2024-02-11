@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+
+<form action="/albums" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title">
+  <label>Artist:</label>
+  <input type="text" name="artist">
+  <!-- <select name="artistId">
+    <% // availableArtists.forEach((artist) => { %>
+      <option value="<%= // artist._id %>"><%= // artist.name %></option> 
+    <% // }); %>
+  </select> -->
+  <label>Release Year:</label>
+  <input type="text" name="releaseYear">
+  <label>Genre:</label>
+  <input type="text" name="genre">
+  <label>Link:</label>
+  <input type="text" name="link">
+  <input type="submit" value="Add Album">
+</form>
+
+<%- include('../partials/footer') %>

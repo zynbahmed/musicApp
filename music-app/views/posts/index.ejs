@@ -10,9 +10,20 @@
 <% posts.forEach(post => { %> 
 
 <div> <%= post.poster %>
-  <form action="/posts/<%= post._id %>"?_method=DELETE method="POST">
-    <button type="submit">X</button>
-    </form>
+ <img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %>
+
+      <%= post.createdAt.toLocaleDateString() %>
+      <% if (user?._id.equals(post.user)) { %>
+
+    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+      <button type="submit">X</button>
+      </form>
+    <a href="/posts/<%= post._id %>/edit">EDIT</a>
+  
+    <% } %>
+    <form action="/posts/<%= post._id %>/like" method="POST">
+      <button type="submit">Like</button>
+      </form><%= post.like.length %>
 </div>
  
   <% }) %>

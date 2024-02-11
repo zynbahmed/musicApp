@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const postSchema= new Schema ({
-    poster : {type: String ,require:true },
+const reviewSchema= new Schema ({
+    content : {type: String ,require:true },
+    rating : Number , 
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
@@ -10,12 +11,10 @@ const postSchema= new Schema ({
       },
       userName: String,
       userAvatar: String,
-      like: {type: Array,
-              default:[]
-      },
+
     }, {
       timestamps: true
 
 })
 
-module.exports = mongoose.model('Post',postSchema)
+module.exports = mongoose.model('Review',reviewSchema)
