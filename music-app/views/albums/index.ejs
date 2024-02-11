@@ -13,7 +13,7 @@
     <% albums.forEach(function(a) { %>
       <tr>
         <td><%= a.title %></td>
-        <td><%= a.artist %></td>
+        <td><%= a.artist ? a.artist.name : 'Unknown Artist' %></td>
         <td><%= a.releaseYear %></td>
         <td><a href="/albums/<%= a._id %>">DETAILS</a></td>
       </tr>

@@ -4,6 +4,6 @@ const artistsCtrl = require('../controllers/artists')
 
 router.get('/artists/new', artistsCtrl.newArtist)
 router.post('/artists', artistsCtrl.createArtist)
-router.post('/albums/:id/artists', artistsCtrl.addToArtist)
+router.post('/albums/:id', artistsCtrl.addToArtist)
 
 module.exports = router

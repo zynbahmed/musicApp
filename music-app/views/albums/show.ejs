@@ -4,7 +4,7 @@
   <div>Title: </div>
   <div><%= album.title %></div>
   <div>Artist: </div>
-  <div><%= album.artist %></div>
+  <div><%= album.artist ? album.artist.name : 'Unknown Artist' %></div>
   <div>Release Year: </div>
   <div><%= album.releaseYear %></div>
   <div>Genre: </div>
@@ -39,7 +39,7 @@
 <% } %>
 
 <section>
-  <h3>Reviews</h3>
+  <h3>Reviews <%= averageRating %> </h3>
   <% if (user) { %>
     <a href="/albums/<%= album._id %>/reviews/add">Add Review</a>
       <% } %>
