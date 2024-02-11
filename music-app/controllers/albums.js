@@ -1,7 +1,6 @@
 const Album = require('../models/album');
 const Artist = require('../models/artist');
-const review = require('../models/review');
-const Review =require('../models/review');
+const Review = require('../models/review');
 
 const index = async (req, res) => {
     const albums = await Album.find({}).populate('artist', 'name');
