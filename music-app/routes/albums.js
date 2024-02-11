@@ -19,5 +19,9 @@ router.get('/:id/edit', albumsCtrl.editAlbum);
 
 // PUT /albums/:id
 router.put('/:id', albumsCtrl.updateAlbum);
+
+// DELETE /albums/:id
+router.delete('/:id', albumsCtrl.deleteAlbum);
+
 	
 module.exports = router;

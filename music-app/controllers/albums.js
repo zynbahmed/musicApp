@@ -74,6 +74,15 @@ const updateAlbum = async (req, res) => {
     }
 }
 
+const deleteAlbum = async (req, res) => {
+  try {
+      await Album.findByIdAndDelete(req.params.id);
+      res.redirect('/albums');
+  } catch (error) {
+      console.error(error);
+      res.redirect(`/albums/${req.params.id}`);
+  }
+}
 
 module.exports = {
     index,
@@ -82,5 +91,6 @@ module.exports = {
     create,
     albumsByArtist,
     editAlbum,
-    updateAlbum
+    updateAlbum,
+    deleteAlbum
   };
