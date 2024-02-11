@@ -1,6 +1,3 @@
-/* Updated CSS code */
-
-/* Body styles */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -12,7 +9,6 @@ body {
   padding: 0;
 }
 
-/* Navigation styles */
 nav {
   display: flex;
   justify-content: space-between;
@@ -29,7 +25,7 @@ nav {
 }
 
 nav .logo img {
-  max-width: 100%;
+  max-width: 9%;
   height: auto;
 }
 
@@ -57,7 +53,6 @@ nav .menu-items a:hover {
   color: #5e3193;
 }
 
-/* Divider styles */
 nav .divider {
   width: 2px;
   height: 20px;
@@ -65,7 +60,6 @@ nav .divider {
   margin: 0 10px;
 }
 
-/* Header styles */
 #header {
   display: flex;
   justify-content: center;
@@ -73,7 +67,6 @@ nav .divider {
   margin-top: 30px;
 }
 
-/* List styles */
 #list {
   margin-top: 30px;
   border-collapse: collapse;
@@ -102,7 +95,6 @@ nav .divider {
   color: #c6aec8;
 }
 
-/* Submenu styles */
 .submenu {
   display: none;
   position: absolute;
@@ -114,4 +106,24 @@ nav .divider {
 
 .album-menu:hover .submenu {
   display: block;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 5%;
+}
+
+.banner video,
+.banner img {
+  display: block;
+  width: 50%;
+  height: auto;
+}
+
+.banner video {
+  object-fit: cover;
 }
