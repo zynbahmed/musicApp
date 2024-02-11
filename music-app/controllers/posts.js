@@ -1,9 +1,10 @@
 const Post = require('../models/post')
 const User=require('../models/user')
+const Comment= require('../models/comment')
 
 const index = async (req, res) => {
   try {
-    const posts = await Post.find({})
+    const posts = await Post.find({}).populate('comment')
     res.render('posts/index', { posts })
     ///sort by time
   } catch (error) {
@@ -96,6 +97,27 @@ const like =async (req, res) => {
   }
 }
 
+
+const  addComment  =async (req,res) =>{
+    const post = await Post.findById(req.params.id).populate('comment')
+    // req.body.user = req.user._id;
+    // req.body.userName = req.user.name;
+    // req.body.userAvatar = req.user.avatar;
+    const comment = await Comment.create(req.body)
+    post.comment.push(comment._id)
+    await post.save()
+
+    console.log("post",post)
+    res.redirect('/posts')
+
+
+    
+
+
+}
+
+
+
 function getTimeAgo(timestamp) {
   const now = new Date();
   const timeElapsed = now - timestamp;
@@ -123,11 +145,14 @@ function getTimeAgo(timestamp) {
 }
 
 
+
+
 module.exports = {
   index,
   creatPost,
   deletePost,
   editPost,
   like,
-  edit
+  edit,
+  addComment
 }
