@@ -1,24 +1,15 @@
 <%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/showall.css">
 
-<table id="list">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Release Year</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% albums.forEach(function(a) { %>
-      <tr>
-        <td><%= a.title %></td>
-        <td><%= a.artist ? a.artist.name : 'Unknown Artist' %></td>
-        <td><%= a.releaseYear %></td>
-        <td><a href="/albums/<%= a._id %>">DETAILS</a></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
-  
+<div class="album-list-container">
+  <% albums.forEach(function(a) { %>
+    <div class="album-card">
+      <h2 class="album-title"><%= a.title %></h2>
+      <p class="album-artist"><strong>Artist:</strong> <%= a.artist ? a.artist.name : 'Unknown Artist' %></p>
+      <p class="album-release-year"><strong>Release Year:</strong> <%= a.releaseYear %></p>
+      <a href="/albums/<%= a._id %>" class="details-button">DETAILS</a>
+    </div>
+  <% }); %>
+</div>
+
 <%- include('../partials/footer') %>
