@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/albumindex.css">
     <title>Document</title>
 </head>
 <body>
     <nav>
-        <a href="/albums">Albums</a>
-        <% if (user) { %>
-            <a href="/posts">POSTS</a>
-            <a href="/albums/new">Add Albums</a>
-            <a href="/artists/new">Artists</a>
-            <a href="/logout">LOG OUT</a>
-        <% } else { %>
-            <a href="/auth/google">LOG IN&nbsp;</a>
-        <% } %>
+        <div class="logo">
+            <img src="https://i.ibb.co/gdHmQZ7/2.png" alt="Logo">
+        </div>
+        <div class="menu-items">
+            <div class="divider"></div>
+            <a href="/albums"> ALBUMS </a>
+            <% if (user) { %>
+                <div class="divider"></div>
+                <a href="/posts">POSTS</a>
+                <div class="divider"></div>
+                <a href="/albums/new">ADD ALBUMS</a>
+                <div class="divider"></div>
+                <a href="/artists/new">ARTISTS</a>
+                <div class="divider"></div>
+                <a href="/logout">LOG OUT</a>
+            <% } else { %>
+                <a href="/auth/google">LOG IN&nbsp;</a>
+            <% } %>
+        </div>
+        <div class="divider"></div>
     </nav>
+    <div style="height: 20px; background-color: #000;"></div>
+</body>
+</html>
