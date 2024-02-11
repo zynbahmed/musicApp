@@ -13,20 +13,8 @@ const show = async (req, res) => {
 }
 
 const newAlbum = async (req, res) => {
-    // const artists = await Artist.findById(req.params.id).populate('name');
-    // const artists = await Artist.find({ _id: { $nin: album.artist } }).sort('name');
-
-    // const albumArtist = album.artist;
-    //create a new array of just the names from the albumArtist
-    // const artistsNames = albumArtist.map((artistsMembers) => artistsMembers.name);
-   
-//     const availableArtists = artists.filter((artist)=> {
-//     console.log(typeof artist._id)
-//     if(!artistsNames.includes(artist.name)) {
-//       return artist;
-//     }
-//   })
-    res.render('albums/new', { title: 'Add Album' });
+    const artists = await Artist.find();
+    res.render('albums/new', { title: 'Add Album', artists });
 }
 
 const create = async (req, res) => {

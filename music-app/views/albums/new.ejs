@@ -4,12 +4,12 @@
   <label>Title:</label>
   <input type="text" name="title">
   <label>Artist:</label>
-  <input type="text" name="artist">
-  <!-- <select name="artistId">
-    <% // availableArtists.forEach((artist) => { %>
-      <option value="<%= // artist._id %>"><%= // artist.name %></option> 
-    <% // }); %>
-  </select> -->
+  <!-- <input type="text" name="artist"> -->
+  <select name="artistId">
+    <% artists.forEach((artist) => { %>
+      <option value="<%= artist._id %>"><%= artist.name %></option> 
+    <% }); %>
+  </select>
   <label>Release Year:</label>
   <input type="text" name="releaseYear">
   <label>Genre:</label>
