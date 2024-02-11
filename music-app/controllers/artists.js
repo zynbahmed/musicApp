@@ -18,7 +18,7 @@ async function createArtist(req, res) {
 const addToArtist = async (req, res) => {
   try {
     const album = await Album.findById(req.params.id);
-    album.artist = req.body.artistId;
+    album.artist = req.body.artist;
     await album.save();
     res.redirect(`/albums/${album._id}`);
   } catch (error) {

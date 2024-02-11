@@ -5,7 +5,7 @@
   <input type="text" name="title">
   <label>Artist:</label>
   <!-- <input type="text" name="artist"> -->
-  <select name="artistId">
+  <select name="artist">
     <% artists.forEach((artist) => { %>
       <option value="<%= artist._id %>"><%= artist.name %></option> 
     <% }); %>

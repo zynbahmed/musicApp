@@ -3,12 +3,15 @@ const Artist = require('../models/artist');
 const Review =require('../models/review');
 
 const index = async (req, res) => {
-    const albums = await Album.find({});
+    const albums = await Album.find({}).populate('artist', 'name');
+    console.log(albums)
     res.render('albums/index', { title: 'All Albums', albums });
 }
 
 const show = async (req, res) => {
-    const album = await Album.findById(req.params.id).populate('reviews');
+    const album = await Album.findById(req.params.id)
+      .populate('artist')
+      .populate('reviews');
     res.render('albums/show', { title: 'Album Detail', album });
 }
 
@@ -22,7 +25,8 @@ const create = async (req, res) => {
         if (req.body[key] === '') delete req.body[key];
     }
     try {
-        await Album.create(req.body);
+        const album = await Album.create(req.body);
+        console.log(album)
         res.redirect('/albums');  
     } catch (err) {
         console.log(err);
