@@ -1,0 +1,10 @@
+<h1><%= title %></h1>
+
+<ul>
+  <% albums.forEach((album) => { %>
+    <li>
+      <strong><%= album.title %></strong>
+      (<%= album.releaseYear %>)
+    </li>
+  <% }); %>
+</ul>

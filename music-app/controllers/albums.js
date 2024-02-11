@@ -41,9 +41,23 @@ const create = async (req, res) => {
     }
 }
 
+const albumsByArtist = async (req, res) => {
+    try {
+      const artistId = req.params.artistId;
+      const artist = await Artist.findById(artistId);
+      const albums = await Album.find({ artist: artistId }).populate('artist');
+      
+      res.render('albums/albumsByArtist', { title: `Albums by ${artist.name}`, albums });
+    } catch (error) {
+      console.error(error);
+      res.redirect('/'); // Redirect to a relevant page in case of an error
+    }
+  };
+
 module.exports = {
     index,
     show,
     newAlbum,
-    create
+    create,
+    albumsByArtist
   };
