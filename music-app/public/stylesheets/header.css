@@ -107,23 +107,3 @@ nav .divider {
 .album-menu:hover .submenu {
   display: block;
 }
-
-.banner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  padding: 5%;
-}
-
-.banner video,
-.banner img {
-  display: block;
-  width: 50%;
-  height: auto;
-}
-
-.banner video {
-  object-fit: cover;
-}
