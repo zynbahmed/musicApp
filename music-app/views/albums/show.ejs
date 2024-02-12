@@ -45,7 +45,12 @@
 <% } %>
 
 <section>
-  <h3>Reviews <%= averageRating %> </h3>
+  <h3>Reviews 
+    <% for (let i = 0; i < averageRating; i++) { %>
+      ⭐
+    <% } %> 
+  </h3>
+
   <% if (user) { %>
     <a href="/albums/<%= album._id %>/reviews/add">Add Review</a>
       <% } %>
