@@ -41,19 +41,7 @@ app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
-app.get('/', async (req, res) => {
-  const catFactsUrl = 'https://catfact.ninja/facts';
 
-  try {
-    const response = await axios.get(catFactsUrl);
-    const catFacts = response.data.data;
-
-    res.json(catFacts);
-  } catch (error) {
-    console.error('Error fetching cat facts:', error);
-    res.status(500).send('Error fetching cat facts');
-  }
-});
 
 app.use('/', indexRouter)
 app.use('/albums', albumsRouter)
