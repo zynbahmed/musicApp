@@ -7,7 +7,8 @@ const artistSchema = new Schema(
       type: String,
       required: true,
       unique: true
-    }
+    },
+
   },
   {
     timestamps: true
