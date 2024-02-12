@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
+<link rel="stylesheet" type="text/css" href="/path/to/post.css">
 
 <form action="/posts"  method="POST" id ="post-form">
-  <input type="text" name="poster" >
+  <input type="text" name="poster" placeholder="Write your post here" class="post-input">
   <button type="submit" id="post-button">POST</button>
 </form>
 
@@ -10,37 +11,38 @@
     <img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" class="avatar" >
     <div class="post-details">
       <span class="username"><%= post.userName %></span>
-      <p class="poster"><%= post.poster %></p>
-      <p class="time-ago"><%= getTimeAgo(post.createdAt) %></p>
+      <div class="edit-delete">
+        <% if (user?._id.equals(post.user)) { %>
+          <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="delete-button">X</button>
+          </form>
+          <a href="/posts/<%= post._id %>/edit" class="edit-link">EDIT</a>
+        <% } %>
+      </div>
     </div>
-
-    <% if (user?._id.equals(post.user)) { %>
-      <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-        <button type="submit" class="delete-button">X</button>
-      </form>
-      <a href="/posts/<%= post._id %>/edit" class="edit-link">EDIT</a>
-    <% } %>
+    <p class="time-ago"><%= getTimeAgo(post.createdAt) %></p>
+    <p class="poster-text"><%= post.poster %></p> <!-- Changed class to "poster-text" -->
 
     <form action="/posts/<%= post._id %>/like" method="POST" class="link-form">
       <div class="comment-react">
-
-      <button type="submit"> <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-      >
-        <path
-          d="M19.4626 3.99415C16.7809 2.34923 14.4404 3.01211 13.0344 4.06801C12.4578 4.50096 12.1696 4.71743 12 4.71743C11.8304 4.71743 11.5422 4.50096 10.9656 4.06801C9.55962 3.01211 7.21909 2.34923 4.53744 3.99415C1.01807 6.15294 0.221721 13.2749 8.33953 19.2834C9.88572 20.4278 10.6588 21 12 21C13.3412 21 14.1143 20.4278 15.6605 19.2834C23.7783 13.2749 22.9819 6.15294 19.4626 3.99415Z"
-          stroke="#707277"
-          stroke-width="2"
-          stroke-linecap="round"
-          fill="#707277"
-        ></path>
-      </svg></button>
-      <span><%= post.like.length %></span>
-    </div>
+        <button type="submit"> <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M19.4626 3.99415C16.7809 2.34923 14.4404 3.01211 13.0344 4.06801C12.4578 4.50096 12.1696 4.71743 12 4.71743C11.8304 4.71743 11.5422 4.50096 10.9656 4.06801C9.55962 3.01211 7.21909 2.34923 4.53744 3.99415C1.01807 6.15294 0.221721 13.2749 8.33953 19.2834C9.88572 20.4278 10.6588 21 12 21C13.3412 21 14.1143 20.4278 15.6605 19.2834C23.7783 13.2749 22.9819 6.15294 19.4626 3.99415Z"
+            stroke="#707277"
+            stroke-width="2"
+            stroke-linecap="round"
+            fill="#707277"
+          ></path>
+        </svg></button>
+        <span><%= post.like.length %></span>
+      </div>
+    </form>
     
     <form action="/posts/<%= post._id %>/comments" method="POST" class="comment-form">
       <input type="text" name="comment" class="comment-input">
@@ -59,13 +61,11 @@
     <% }) %>      
   </section>
 <% }) %>
-
   <%
   function getTimeAgo(timestamp) {
     const now = new Date();
     const timeElapsed = now - timestamp;
   
-    // Calculate time differences in milliseconds
     const minute = 60 * 1000;
     const hour = 60 * minute;
     const day = 24 * hour;
