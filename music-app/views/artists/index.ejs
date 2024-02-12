@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+
+
+<% artists.forEach(artist => { %> 
+    <a href="/albums/artists/<%= artist._id %>/albums"><%= artist.name %> %></a>
+
+
+<% }) %>      
+
+<%- include('../partials/footer') %>
