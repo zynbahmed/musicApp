@@ -26,9 +26,16 @@ const addToArtist = async (req, res) => {
     res.redirect('/albums');
   }
 }
+const index = async (req,res) => {
+  const artists = await Artist.find({}).sort('name')
+  res.render('artists/index',{artists})
+
+}
+
 
 module.exports = {
   newArtist,
   createArtist,
-  addToArtist
+  addToArtist,
+  index
 }
