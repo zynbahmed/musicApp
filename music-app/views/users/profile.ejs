@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<section>
+  <h2>User Profile - <%= user.name %></h2>
+  <h3>Liked Songs</h3>
+
+  <% if (user.likedSongs.length) { %>
+    <ul>
+      <% user.likedSongs.forEach((song) => { %>
+        <li><%= song.name %></li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>No liked songs yet.</p>
+  <% } %>
+</section>
+
+<%- include('../partials/footer') %>
