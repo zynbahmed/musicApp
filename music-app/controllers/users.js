@@ -37,32 +37,6 @@ const likeSong = async (req, res) => {
     console.error(error);
   }
   res.redirect('/users/profile')
-
-  
-
-
-    // if (action === 'add') {
-    //   // Check if the song with the specified songId exists
-    //   const songExists = await Song.findById(songId);
-
-    //   if (songExists) {
-    //     // Check if the song is not already in likedSongs array
-    //     const isSongLiked = user.likedSongs.some(song => song.equals(songId));
-    //     if (!isSongLiked) {
-    //       user.likedSongs.push(songId);
-    //       await user.save();
-    //     }
-    //   } else {
-    //     console.error('Song does not exist:', songId);
-    //     // Handle the case where the song does not exist
-    //   }
-    // } else if (action === 'remove') {
-    //   // Remove the song from the likedSongs array
-    //   user.likedSongs = user.likedSongs.filter(song => !song.equals(songId));
-    //   await user.save();
-    // }
-
-
 };
 
 const updaterole =async (req,res) => {
