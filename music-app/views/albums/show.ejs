@@ -56,7 +56,13 @@
             <td>
               <form method="POST" action="/users/like-song">
                 <input type="hidden" name="songId" value="<%= s._id %>">
-                <button type="submit">Add to Liked Songs</button>
+                <% if (user && user.likedSongs.some(song => song.equals(s._id.toString()))) { %>
+                  <input type="hidden" name="action" value="remove">
+                  <button type="submit">Remove from Liked Songs</button>
+                <% } else { %>
+                  <input type="hidden" name="action" value="add">
+                  <button type="submit">Add to Liked Songs</button>
+                <% } %>
               </form>
             </td>
           </tr>

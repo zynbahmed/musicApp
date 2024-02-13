@@ -24,23 +24,3 @@
 </form>
 
 <%- include('../partials/footer') %>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const albumMenu = document.querySelector('.album-menu');
-    const addAlbumItem = document.createElement('a');
-    addAlbumItem.textContent = 'Add Album';
-    addAlbumItem.href = '/albums/new';
-    addAlbumItem.style.display = 'none'; // Initially hide the 'Add Album' option
-
-    albumMenu.appendChild(addAlbumItem);
-
-    albumMenu.addEventListener('mouseover', function() {
-      addAlbumItem.style.display = 'block'; // Show 'Add Album' option on hover
-    });
-
-    albumMenu.addEventListener('mouseout', function() {
-      addAlbumItem.style.display = 'none'; // Hide 'Add Album' option on mouseout
-    });
-  });
-</script>

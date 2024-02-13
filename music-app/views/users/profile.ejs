@@ -5,11 +5,20 @@
   <h3>Liked Songs</h3>
 
   <% if (user.likedSongs.length) { %>
-    <ul>
       <% user.likedSongs.forEach((song) => { %>
-        <li><%= song.name %></li>
+        <tr>
+          <td><%= song.name %></td>
+          <td>
+            <form method="POST" action="/users/like-song">
+              <input type="hidden" name="songId" value="<%= song._id %>">
+              <% if (user && user.likedSongs.some(song => song.equals(song._id.toString()))) { %>
+                <input type="hidden" name="action" value="remove">
+                <button type="submit">Remove from Liked Songs</button>
+              <% } %>
+            </form>
+          </td>
+        </tr>
       <% }); %>
-    </ul>
   <% } else { %>
     <p>No liked songs yet.</p>
   <% } %>
