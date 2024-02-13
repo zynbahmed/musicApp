@@ -45,7 +45,6 @@ const updaterole =async (req,res) => {
 }
 module.exports = {
   showProfile,
-  likeSong
-  showProfile,
+  likeSong,
   updaterole
 };
