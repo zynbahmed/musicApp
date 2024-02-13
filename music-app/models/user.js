@@ -10,7 +10,7 @@ const userSchema = new Schema({
   },
   email: String,
   avatar: String,
-  likedSongs: [Song.schema]
+  likedSongs: [Song]
 }, {
   timestamps: true
 });
