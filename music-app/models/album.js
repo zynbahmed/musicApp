@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
+const Song = require('./song');
 
 const songSchema = new Schema({
   name: {
@@ -34,7 +35,7 @@ const albumSchema = new Schema({
         type: String, 
         required: true
     },
-    songs: [songSchema],
+    songs: [Song.schema],
     reviews:  [{ type: Schema.Types.ObjectId, ref: 'Review' }],
   }, {
     timestamps: true
