@@ -23,7 +23,20 @@ const create = async (req, res) => {
   res.redirect(`/albums/${album._id}`);
 }
 
+const songLyrics = async () => {
+const songLyricsLink = "https://api.lyrics.ovh/v1/artist/title"
+try {
+  const album= await Album.findById(req.params.id).populate('artist')
+const artistName = album.artist.name
+
+
+}catch (error){
+
+}
+} 
+
 
 module.exports = {
-  create
+  create,
+  songLyrics
 };
