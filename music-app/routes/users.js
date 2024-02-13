@@ -4,4 +4,6 @@ const usersCtrl = require('../controllers/users');
 
 router.get('/profile', usersCtrl.showProfile);
 
+router.post('/like-song', usersCtrl.likeSong);
+
 module.exports = router;

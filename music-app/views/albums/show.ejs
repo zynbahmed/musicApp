@@ -48,6 +48,12 @@
         <% album.songs.forEach((s) => { %>
           <tr>
             <td><%= s.name %></td>
+            <td>
+              <form method="POST" action="/users/like-song">
+                <input type="hidden" name="songId" value="<%= s._id %>">
+                <button type="submit">Add to Liked Songs</button>
+              </form>
+            </td>
           </tr>
         <% }); %>
       </tbody>
