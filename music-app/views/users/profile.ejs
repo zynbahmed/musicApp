@@ -5,10 +5,7 @@
   <h3>Liked Songs</h3>
   <% if (user.likedSongs.length) { %>
       <% user.likedSongs.forEach((song) => { %>
-        <tr>
-          <td><%= song %></td>
-          <td><%= song.name %></td>
-        </tr>
+          <h4><%= song %></h4>
       <% }); %>
   <% } else { %>
     <p>No liked songs yet.</p>
