@@ -28,7 +28,7 @@ const addToArtist = async (req, res) => {
 }
 const index = async (req, res) => {
   const artists = await Artist.find({}).sort('name')
-  res.render('artists/index', { artists })
+  res.render('artists/index', { title: 'All Artists', artists })
 }
 
 module.exports = {
