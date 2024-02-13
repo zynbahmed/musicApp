@@ -10,7 +10,7 @@ const userSchema = new Schema({
   },
   email: String,
   avatar: String,
-  likedSongs: [Song],
+  likedSongs: [String],
   firstlog: {type:Boolean , default:true },
   role : {type:String , enum:["admin","user"] ,default:"user"} 
 }, {
