@@ -63,22 +63,3 @@ body {
 #add-artist-form input[type='submit']:hover {
   background-color: #c52564;
 }
-
-/* Header and footer styles */
-/* You can define these styles in header.css and footer.css if needed */
-header,
-footer {
-  background-color: #5e3193;
-  color: #fafdff;
-  padding: 15px 0;
-  text-align: center;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-/* Footer styles */
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
