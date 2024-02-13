@@ -4,7 +4,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/albums')
+  //
+  if ( req.user && req.user.firstlog){
+    res.render('usertype')
+  }
+  else {
+    res.redirect('/albums')}
 });
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
