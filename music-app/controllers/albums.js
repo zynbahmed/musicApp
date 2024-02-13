@@ -4,7 +4,7 @@ const Review = require('../models/review');
 
 const index = async (req, res) => {
     const albums = await Album.find({}).populate('artist', 'name');
-    console.log(albums)
+    // console.log(albums)
     res.render('albums/index', { title: 'All Albums', albums });
 }
 
@@ -32,7 +32,7 @@ const create = async (req, res) => {
     }
     try {
         const album = await Album.create(req.body);
-        console.log(album)
+        // console.log(album)
         res.redirect('/albums');  
     } catch (err) {
         console.log(err);
