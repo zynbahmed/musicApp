@@ -47,8 +47,21 @@ const likeSong = async (req, res) => {
   res.redirect('/users/profile');
 };
 
-
+const updaterole =async (req,res) => {
+  try {
+  const user = await User.findById(req.params.id)
+  user.role=req.body.role
+  user.firstlog = false
+  await user.save()
+  res.redirect('/albums')
+  }catch (error){
+    console.error(error);
+    res.redirect('/');
+  }
+  
+}
 module.exports = {
   showProfile,
-  likeSong
+  likeSong,
+  updaterole
 };

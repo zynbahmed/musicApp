@@ -30,6 +30,11 @@ const create = async (req, res) => {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     }
+    const { image } = req.files
+    req.body.image = image.name
+    console.log(req.files);
+    image.mv('public/images/' + image.name)
+
     try {
         const album = await Album.create(req.body);
         // console.log(album)
