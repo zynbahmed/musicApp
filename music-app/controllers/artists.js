@@ -1,5 +1,5 @@
 const Artist = require('../models/artist')
-const Alubum = require('../models/album')
+const Album = require('../models/album')
 
 async function newArtist(req, res) {
   const artists = await Artist.find({}).sort('name')
@@ -17,21 +17,19 @@ async function createArtist(req, res) {
 
 const addToArtist = async (req, res) => {
   try {
-    const album = await Album.findById(req.params.id);
-    album.artist = req.body.artist;
-    await album.save();
-    res.redirect(`/albums/${album._id}`);
+    const album = await Album.findById(req.params.id)
+    album.artist = req.body.artist
+    await album.save()
+    res.redirect(`/albums/${album._id}`)
   } catch (error) {
-    console.log(error);
-    res.redirect('/albums');
+    console.log(error)
+    res.redirect('/albums')
   }
 }
-const index = async (req,res) => {
+const index = async (req, res) => {
   const artists = await Artist.find({}).sort('name')
-  res.render('artists/index',{artists})
-
+  res.render('artists/index', { artists })
 }
-
 
 module.exports = {
   newArtist,

@@ -1,10 +1,35 @@
 <%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/artistsindex.css">
 
+<div class="banner">
+  <img src="https://i.ibb.co/6Yk0fvb/Screenshot-2024-02-11-at-9-36-20-PM.png" alt="banner">
+</div>
 
-<% artists.forEach(artist => { %> 
-    <a href="/albums/artists/<%= artist._id %>/albums"><%= artist.name %> %></a>
-
-
-<% }) %>      
+<div class="artist-list-container"> 
+  <% artists.forEach(artist => { %> 
+    <div class="artist-card"> 
+      <a href="/albums/artists/<%= artist._id %>/albums" class="artist-link"> 
+        <h2 class="artist-name"><%= artist.name %></h2> 
+        <!-- You can add additional details about the artist here -->
+      </a>
+      
+      <% if (artist.albums && artist.albums.length > 0) { %>
+        <div class="album-list-container"> <!-- Start of the container for albums -->
+          <% artist.albums.forEach(album => { %> <!-- Iterating over albums -->
+            <div class="album-card"> <!-- Album card -->
+              <h2 class="album-title"><%= album.title %></h2> <!-- Album title -->
+              <p class="album-artist"><strong>Artist:</strong> <%= artist.name %></p> <!-- Artist name -->
+              <p class="album-release-year"><strong>Release Year:</strong> <%= album.releaseYear %></p> <!-- Release year -->
+              <a href="/albums/<%= album._id %>" class="details-button">DETAILS</a> <!-- Details button -->
+            </div> <!-- End of album card -->
+          <% }); %> <!-- End of album iteration -->
+        </div> <!-- End of album-list-container -->
+      <% } else { %>
+        <p>No albums found for this artist.</p> <!-- Displayed when no albums are found -->
+      <% } %>
+      
+    </div> <!-- End of artist-card -->
+  <% }) %> <!-- End of artist iteration -->
+</div> <!-- End of artist-list-container -->
 
 <%- include('../partials/footer') %>
