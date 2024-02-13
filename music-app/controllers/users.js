@@ -14,12 +14,29 @@ const likeSong = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
     const songId = req.body.songId;
+    const action = req.body.action;
 
-    // Check if the song is already in likedSongs array
-    const isSongLiked = user.likedSongs.some(song => song.equals(songId));
+    // console.log('Received songId:', songId);
+    // console.log('Action:', action);
 
-    if (!isSongLiked) {
-      user.likedSongs.push(songId);
+    if (action === 'add') {
+      // Check if the song with the specified songId exists
+      const songExists = await Song.findById(songId);
+
+      if (songExists) {
+        // Check if the song is not already in likedSongs array
+        const isSongLiked = user.likedSongs.some(song => song.equals(songId));
+        if (!isSongLiked) {
+          user.likedSongs.push(songId);
+          await user.save();
+        }
+      } else {
+        console.error('Song does not exist:', songId);
+        // Handle the case where the song does not exist
+      }
+    } else if (action === 'remove') {
+      // Remove the song from the likedSongs array
+      user.likedSongs = user.likedSongs.filter(song => !song.equals(songId));
       await user.save();
     }
 
@@ -29,6 +46,7 @@ const likeSong = async (req, res) => {
 
   res.redirect('/users/profile');
 };
+
 
 module.exports = {
   showProfile,
