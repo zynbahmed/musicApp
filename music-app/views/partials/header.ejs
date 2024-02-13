@@ -18,7 +18,10 @@
             <div class="album-menu"> 
                 ALBUMS 
                 <div class="submenu">
-                    <a href="/albums/new">Add Album</a>
+                    <% if (user && user.role==="admin" ) { %>
+                        <a href="/albums/new">Add Album</a>
+                    <% } %>
+
                     <a href="/albums">Show All</a>
                 </div>
             </div>
