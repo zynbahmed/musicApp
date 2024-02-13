@@ -20,9 +20,13 @@ const likeSong = async (req, res) => {
     // console.log('Received songId:', songId);
     // console.log('Action:', action);
     const song= await Album.findOne({ 'songs._id': songId }, { 'songs.$': 1 }).populate('songs')
+    if (!user.likedSongs.includes(song.songs[0].name)){
     console.log("song",song.songs[0].name)
     user.likedSongs.push(song.songs[0].name)
-    await user.save()
+    await user.save()}
+    else {
+      console.log('you add this before')
+    }
   } catch (error) {
     console.error(error);
   }

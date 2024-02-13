@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
 <section>
-  <h2>User Profile - <%= user.name %></h2>
+  <h2>User Profile - <%= user.name %> </h2>
   <h3>Liked Songs</h3>
-  <%= user.likedSongs %>
   <% if (user.likedSongs.length) { %>
       <% user.likedSongs.forEach((song) => { %>
         <tr>
+          <td><%= song %></td>
           <td><%= song.name %></td>
         </tr>
       <% }); %>
