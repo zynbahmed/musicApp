@@ -1,27 +1,47 @@
 <%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/show.css">
 
-<section>
+<section class="album-details">
   <% if(user) { %>
-  <a href="/albums/<%= album._id %>/edit">Edit</a>
-  <form method="POST" action="/albums/<%= album._id %>?_method=DELETE">
-    <button type="submit">Delete</button>
-  </form>
+    <div class="actions">
+      <a href="/albums/<%= album._id %>/edit">Edit</a>
+      <form method="POST" action="/albums/<%= album._id %>?_method=DELETE">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
   <% } %>
-  <div>Title: </div>
-  <div><%= album.title %></div>
-  <div>Artist: </div>
-  <div><a href="/albums/artists/<%= album.artist._id %>/albums"><%= album.artist ? album.artist.name : 'Unknown Artist' %></a></div>
-  <div>Release Year: </div>
-  <div><%= album.releaseYear %></div>
-  <div>Genre: </div>
-  <div><%= album.genre %></div>
-  <div><a href="<%= album.link %>">Listen on Spotify</a></div>
+  <div class="detail">
+    <div class="label">Title:</div>
+    <div class="value"><%= album.title %></div>
+  </div>
+  <div class="detail">
+    <div class="label">Artist:</div>
+    <div class="value">
+      <a href="/albums/artists/<%= album.artist._id %>/albums">
+        <%= album.artist ? album.artist.name : 'Unknown Artist' %>
+      </a>
+    </div>
+  </div>
+  <div class="detail">
+    <div class="label">Release Year:</div>
+    <div class="value"><%= album.releaseYear %></div>
+  </div>
+  <div class="detail">
+    <div class="label">Genre:</div>
+    <div class="value"><%= album.genre %></div>
+  </div>
+  <div class="detail">
+    <div class="label">Listen on Spotify:</div>
+    <div class="value"><a href="<%= album.link %>">Listen on Spotify</a></div>
+  </div>
 </section>
-<% if (album.songs.length) { %>
+
+<section class="songs-section">
+  <% if (album.songs.length) { %>
     <table>
       <thead>
         <tr>
-          <th>Songs Name:</th>
+          <th>Song Name:</th>
         </tr>
       </thead>
       <tbody>
@@ -35,16 +55,20 @@
   <% } else { %>
     <h5>No Songs Yet</h5>
   <% } %>
-  <% if(user) { %>
-    <br><br><h2>Songs</h2>
-    <form method="POST" action="/albums/<%= album._id %>/songs">
-        <label>Song Name:</label>
-        <input name="name"></input>
-        <input type="submit" value="Add Song">
-    </form>
-<% } %>
 
-<section>
+  <% if(user) { %>
+    <div class="add-song-form">
+      <h2>Add Song</h2>
+      <form method="POST" action="/albums/<%= album._id %>/songs">
+        <label for="songName">Song Name:</label>
+        <input type="text" id="songName" name="name">
+        <button type="submit">Add Song</button>
+      </form>
+    </div>
+  <% } %>
+</section>
+
+<section class="reviews-section">
   <h3>Reviews 
     <% for (let i = 0; i < averageRating; i++) { %>
       ⭐
@@ -53,19 +77,23 @@
 
   <% if (user) { %>
     <a href="/albums/<%= album._id %>/reviews/add">Add Review</a>
-      <% } %>
- 
+  <% } %>
 
   <% if (album.reviews.length) { %> 
-    
-    <ul>
+    <ul class="review-list">
       <% album.reviews.forEach((review) => { %>
-        <li><img alt="avatar" src="<%= review.userAvatar %>" referrerpolicy="no-referrer" ><%= review.content %> <%= review.rating %> <%= review.userName %></li>
-
+        <li class="review">
+          <img alt="avatar" src="<%= review.userAvatar %>" referrerpolicy="no-referrer">
+          <div class="review-content">
+            <p><%= review.content %></p>
+            <p><%= review.rating %> by <span class="username"><%= review.userName %></span></p>
+          </div>
+        </li>
       <% }); %>
     </ul>
   <% } else { %>
     <h5>No Reviews Yet</h5>
   <% } %>
 </section>
+
 <%- include('../partials/footer') %>

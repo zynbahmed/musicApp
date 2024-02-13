@@ -1,0 +1,136 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  color: #211423;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #5e3193;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Album Details Section Styles */
+.album-details {
+  background-color: #fafdff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.detail {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.value {
+  color: #211423;
+}
+
+/* Songs Section Styles */
+.songs-section {
+  background-color: #fafdff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-song-form {
+  margin-top: 20px;
+}
+
+.add-song-form h2 {
+  margin-bottom: 10px;
+}
+
+.add-song-form label {
+  font-weight: bold;
+}
+
+.add-song-form input[type='text'] {
+  width: calc(100% - 80px);
+  padding: 8px;
+  margin-top: 5px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.add-song-form button[type='submit'] {
+  background-color: #5e3193;
+  color: #fafdff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-song-form button[type='submit']:hover {
+  background-color: #211423;
+}
+
+/* Reviews Section Styles */
+.reviews-section {
+  background-color: #fafdff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-section h3 {
+  margin-bottom: 10px;
+}
+
+.review-list {
+  list-style: none;
+  padding: 0;
+  color: #211423;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.review {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.review-content {
+  flex: 1;
+}
+
+.review-content p {
+  margin: 0;
+}
+
+.username {
+  font-weight: lighter;
+  color: #14171a;
+  font-size: smaller;
+  font-family: monospace;
+}
