@@ -21,9 +21,14 @@
         <div class="detail">
             <div class="label">Artist:</div>
             <div class="value">
+                <% if (user) { %>
                 <a href="/albums/artists/<%= album.artist._id %>/albums">
                     <%= album.artist ? album.artist.name : 'Unknown Artist' %>
                 </a>
+                <% } else { %>
+                    <%= album.artist ? album.artist.name : 'Unknown Artist' %>
+                <% } %>
+
             </div>
         </div>
         <div class="detail">
