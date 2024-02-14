@@ -43,19 +43,38 @@ section img.avatar {
   position: absolute;
   top: 10px;
   right: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .delete-button,
 .edit-link {
-  color: #5e3193;
+  color: #fff;
   font-weight: bold;
   text-decoration: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.delete-button {
+  background-color: #5e3193;
+}
+
+.edit-link {
+  background-color: #5e3193;
 }
 
 .delete-button:hover,
 .edit-link:hover {
-  text-decoration: underline;
+  background-color: #2c3e50;
+  color: #fff;
+  text-decoration: none;
 }
+
 
 .like-button {
   background-color: transparent;
