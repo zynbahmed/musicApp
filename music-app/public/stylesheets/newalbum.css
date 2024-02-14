@@ -1,10 +1,11 @@
 form {
-  max-width: 500px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fafdff;
+  width: 975px;
+  margin-bottom: 5%;
 }
 
 label {
@@ -41,4 +42,19 @@ input[type='submit'] {
 
 input[type='submit']:hover {
   background-color: #c52564;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: auto;
+  padding: 1%;
+}
+
+.banner img {
+  display: block;
+  width: 55%;
+  height: auto;
 }

@@ -1,8 +1,10 @@
 .album-list-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
+  padding: 20px;
+  margin-bottom: 5%;
 }
 
 .album-card {
@@ -80,7 +82,7 @@
   align-items: center;
   width: 85%;
   height: auto;
-  padding: 5%;
+  padding: 1%;
 }
 
 .banner img {
