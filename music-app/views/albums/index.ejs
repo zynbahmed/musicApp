@@ -2,19 +2,23 @@
 <link rel="stylesheet" href="/stylesheets/showall.css">
 
 <div class="banner">
-      <img src="https://i.ibb.co/6Yk0fvb/Screenshot-2024-02-11-at-9-36-20-PM.png" alt="banner">
-</img>
-  </div>
+    <img src="https://i.ibb.co/6Yk0fvb/Screenshot-2024-02-11-at-9-36-20-PM.png" alt="banner">
+</div>
 <div class="album-list-container">
-  <% albums.forEach(function(a) { %>
+    <% albums.forEach(function(a) { %>
     <div class="album-card">
-      <img src="/images/<%= a.image %>" alt="cover">
-      <h2 class="album-title"><%= a.title %></h2>
-      <p class="album-artist"><strong>Artist:</strong> <%= a.artist ? a.artist.name : 'Unknown Artist' %></p>
-      <p class="album-release-year"><strong>Release Year:</strong> <%= a.releaseYear %></p>
-      <a href="/albums/<%= a._id %>" class="details-button">DETAILS</a>
+        <div class="album-image">
+            <picture>
+                <source srcset="/images/<%= a.image %>" media="(min-width: 768px)">
+                <img src="/images/<%= a.image %>" alt="cover">
+            </picture>
+        </div>
+        <h2 class="album-title"><%= a.title %></h2>
+        <p class="album-artist"><strong>Artist:</strong> <%= a.artist ? a.artist.name : 'Unknown Artist' %></p>
+        <p class="album-release-year"><strong>Release Year:</strong> <%= a.releaseYear %></p>
+        <a href="/albums/<%= a._id %>" class="details-button">DETAILS</a>
     </div>
-  <% }); %>
+    <% }); %>
 </div>
 
 <%- include('../partials/footer') %>
