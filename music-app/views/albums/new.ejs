@@ -7,7 +7,7 @@
 
 <form action="/albums" method="POST" enctype="multipart/form-data">
   <label>Title:</label>
-  <input type="text" name="title">
+  <input type="text" placeholder="Enter Album's Title" name="title">
   <label>Artist:</label>
   <select name="artist">
     <% artists.forEach((artist) => { %>
@@ -15,12 +15,12 @@
     <% }); %>
   </select>
   <label>Release Year:</label>
-  <input type="text" name="releaseYear">
+  <input type="text" placeholder="YYYY" name="releaseYear">
   <label>Genre:</label>
-  <input type="text" name="genre">
+  <input type="text" placeholder="Enter Album's Genre" name="genre">
   <label>Link:</label>
-  <input type="text" name="link">
-  <label for="image">Image</label>
+  <input type="text" placeholder="Enter Album's Link on Spotify" name="link">
+  <label for="image">Image: </label>
   <input type="file" name="image" id="imgInput" required>
   <input type="submit" value="Add Album">
 
