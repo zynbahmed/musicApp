@@ -1,9 +1,13 @@
 <%- include('../partials/header') %>
 <link rel="stylesheet" href="/stylesheets/newalbum.css">
 
+<div class="banner">
+  <img src="https://i.ibb.co/Fq0mGrS/Screenshot-2024-02-14-at-12-26-24-PM.png" alt="banner">
+</div>
+
 <form action="/albums" method="POST" enctype="multipart/form-data">
   <label>Title:</label>
-  <input type="text" placeholder="Type Album's Title" name="title">
+  <input type="text" name="title">
   <label>Artist:</label>
   <!-- <input type="text" name="artist"> -->
   <select name="artist">
@@ -12,12 +16,12 @@
     <% }); %>
   </select>
   <label>Release Year:</label>
-  <input type="text" placeholder="YYYY" name="releaseYear">
+  <input type="text" name="releaseYear">
   <label>Genre:</label>
-  <input type="text" placeholder="Type Album's Genre" name="genre">
+  <input type="text" name="genre">
   <label>Link:</label>
-  <input type="text" placeholder="Paste Album's Link" name="link">
-  <label for="image">Image: </label>
+  <input type="text" name="link">
+  <label for="image">Image</label>
   <input type="file" name="image" id="imgInput" required>
   <input type="submit" value="Add Album">
 
