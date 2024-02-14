@@ -2,130 +2,132 @@
 <link rel="stylesheet" href="/stylesheets/show.css">
 
 <section class="album-details">
-
-    <% if (user && user.role==="admin" ) { %>
-      <a href="/albums/new">Add Album</a>
-    <div class="actions">
-      <a href="/albums/<%= album._id %>/edit">Edit</a>
-      <form method="POST" action="/albums/<%= album._id %>?_method=DELETE">
-        <button type="submit">Delete</button>
+  <% if (user && user.role === "admin") { %>
+    <div class="admin-actions">
+      <a href="/albums/<%= album._id %>/edit" class="edit-link">Edit</a>
+      <form method="POST" action="/albums/<%= album._id %>?_method=DELETE" class="actions">
+        <button type="submit" class="delete-button">Delete</button>
       </form>
     </div>
-    <% } %>
+      </div>
+  <% } %>
 
   <div class="detail">
-    <div><img src="/images/<%= album.image %>" alt="cover"></div>
-    <div class="label">Title:</div>
-    <div class="value"><%= album.title %></div>
+      <div class="label">Title:</div>
+      <div class="value"><%= album.title %></div>
+  </div>
 
-  </div>
   <div class="detail">
-    <div class="label">Artist:</div>
-    <div class="value">
-      <a href="/albums/artists/<%= album.artist._id %>/albums">
-        <%= album.artist ? album.artist.name : 'Unknown Artist' %>
-      </a>
-    </div>
+      <div class="label">Artist:</div>
+      <div class="value">
+          <a href="/albums/artists/<%= album.artist._id %>/albums">
+              <%= album.artist ? album.artist.name : 'Unknown Artist' %>
+          </a>
+      </div>
   </div>
+
   <div class="detail">
-    <div class="label">Release Year:</div>
-    <div class="value"><%= album.releaseYear %></div>
+      <div class="label">Release Year:</div>
+      <div class="value"><%= album.releaseYear %></div>
   </div>
+
   <div class="detail">
-    <div class="label">Genre:</div>
-    <div class="value"><%= album.genre %></div>
+      <div class="label">Genre:</div>
+      <div class="value"><%= album.genre %></div>
   </div>
+
   <div class="detail">
-    <div class="label">Listen on Spotify:</div>
-    <div class="value"><button style="background-color:#1DB954; border: none"><a href="<%= album.link %>">Listen on Spotify</a></button></div>
+      <div class="label">Listen on Spotify:</div>
+      <div class="value">
+          <button style="background-color:#1DB954; border: none">
+              <a href="<%= album.link %>">Listen on Spotify</a>
+          </button>
+      </div>
+  </div>
+
+  <div class="picture">
+      <img src="/images/<%= album.image %>" alt="cover">
   </div>
 </section>
 
 <section class="songs-section">
-  <% if (album.songs.length) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>Song Name:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% album.songs.forEach((s) => { %>
-          <tr>
-            <td><%= s.name %></td>
-            <td>
-              <form method="POST" action="/users/like-song">
-                <input type="hidden" name="songId" value="<%= s._id %>">
-                <% if (user && !user.likedSongs.includes(s.name)) { %>
-                  <button type="submit" name="action" value="add">Add to Liked Songs</button>
-                <% } else { %>
-                  <button type="submit" name="action" value="remove">Remove from Liked Songs</button>
-                <% } %> 
-              </form>
-            </td>
-          </tr>
-        <% }); %>
-      </tbody>
-    </table>
-  <% } else { %>
-    <h5>No Songs Yet</h5>
-  <% } %>
+    <% if (album.songs.length) { %>
+        <table>
+            <thead>
+                <tr><th>Song Name:</th></tr>
+            </thead>
+            <tbody>
+                <% album.songs.forEach((s) => { %>
+                    <tr>
+                        <td><%= s.name %></td>
+                        <td>
+                            <form method="POST" action="/users/like-song">
+                                <input type="hidden" name="songId" value="<%= s._id %>">
+                                <% if (user && !user.likedSongs.includes(s.name)) { %>
+                                    <button type="submit" name="action" value="add">Add to Liked Songs</button>
+                                <% } else { %>
+                                    <button type="submit" name="action" value="remove">Remove from Liked Songs</button>
+                                <% } %>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <h5>No Songs Yet</h5>
+    <% } %>
 
-  <% if(user &&  user.role==="admin") { %>
-    <div class="add-song-form">
-      <h2>Add Song</h2>
-      <form method="POST" action="/albums/<%= album._id %>/songs">
-        <label for="songName">Song Name:</label>
-        <input type="text" id="songName" name="name">
-        <button type="submit">Add Song</button>
-      </form>
-    </div>
-  <% } %>
+    <% if(user && user.role === "admin") { %>
+        <div class="add-song-form">
+            <h2>Add Song</h2>
+            <form method="POST" action="/albums/<%= album._id %>/songs">
+                <label for="songName">Song Name:</label>
+                <input type="text" id="songName" name="name">
+                <button type="submit">Add Song</button>
+            </form>
+        </div>
+    <% } %>
 </section>
 
 <section class="reviews-section">
-  <% if (user) { %>
-    
-<form action="/albums/<%= album._id %>/reviews" method="POST">
-  <label>content</label>
-  <input name="content" type="text">
-  <label>rating</label>
+    <% if (user) { %>
+        <form action="/albums/<%= album._id %>/reviews" method="POST">
+            <label>Content</label>
+            <input name="content" type="text">
+            <label>Rating</label>
+            <select name="rating">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+    <% } %>
 
-  <select name="rating">
-      <option value=1>1</option>
-      <option value=2>2</option>
-      <option value=3>3</option>
-      <option value=4>4</option>
-      <option value=5>5</option>
-    </select>
-  <button type="submit">Add</button>
-</form>
-<% } %>
-  <h3>Reviews 
-    <% for (let i = 0; i < averageRating; i++) { %>
-      ⭐
-    <% } %> 
-  </h3>
+    <h3>Reviews 
+        <% for (let i = 0; i < averageRating; i++) { %>
+            ⭐
+        <% } %> 
+    </h3>
 
-  <% if (user) { %>
-    <a href="/albums/<%= album._id %>/reviews/add">Add Review</a>
-  <% } %>
-
-  <% if (album.reviews.length) { %> 
-    <ul class="review-list">
-      <% album.reviews.forEach((review) => { %>
-        <li class="review">
-          <img alt="avatar" src="<%= review.userAvatar %>" referrerpolicy="no-referrer">
-          <div class="review-content">
-            <p><%= review.content %></p>
-            <p><%= review.rating %> by <span class="username"><%= review.userName %></span></p>
-          </div>
-        </li>
-      <% }); %>
-    </ul>
-  <% } else { %>
-    <h5>No Reviews Yet</h5>
-  <% } %>
+    <% if (album.reviews.length) { %> 
+        <ul class="review-list">
+            <% album.reviews.forEach((review) => { %>
+                <li class="review">
+                    <img alt="avatar" src="<%= review.userAvatar %>" referrerpolicy="no-referrer">
+                    <div class="review-content">
+                        <p><%= review.content %></p>
+                        <p><%= review.rating %> by <span class="username"><%= review.userName %></span></p>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <h5>No Reviews Yet</h5>
+    <% } %>
 </section>
 
 <%- include('../partials/footer') %>
