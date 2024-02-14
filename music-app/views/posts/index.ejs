@@ -14,10 +14,10 @@
       <span class="username"><%= post.userName %></span>
       <div class="edit-delete">
         <% if (user?._id.equals(post.user)) { %>
+          <a href="/posts/<%= post._id %>/edit" class="edit-link">EDIT</a>
           <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
             <button type="submit" class="delete-button">X</button>
           </form>
-          <a href="/posts/<%= post._id %>/edit" class="edit-link">EDIT</a>
         <% } %>
       </div>
     </div>
