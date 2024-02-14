@@ -8,7 +8,7 @@ body {
 a {
   color: #5e3193;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 a:hover {
@@ -28,39 +28,35 @@ a:hover {
   font-size: larger;
 }
 
-.album-details .picture {
+.detail {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.picture {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   position: relative;
 }
 
-.album-details .picture img {
+.picture img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.album-details .details-right {
+.details-right {
   margin-left: 20px;
 }
 
-.album-details .detail {
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.album-details .label {
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.album-details .value {
-  color: #211423;
-}
-
-.album-details .add-album-link {
+.add-album-link {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -76,38 +72,6 @@ a:hover {
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.songs-section table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.songs-section th,
-.songs-section td {
-  border-bottom: 1px solid #ccc;
-  padding: 8px 0;
-  text-align: left;
-}
-
-.songs-section th {
-  font-weight: bold;
-}
-
-button[type='submit'],
-button {
-  background-color: #5e3193;
-  color: #fafdff;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button[type='submit']:hover,
-button:hover {
-  background-color: #211423;
 }
 
 .add-song-form {
@@ -134,38 +98,24 @@ button:hover {
 }
 
 .add-song-form button[type='submit'] {
-  font-size: larger;
-}
-
-.reviews-section form {
-  margin-bottom: 20px;
-}
-
-.reviews-section label {
-  display: block;
-  margin-bottom: 5px;
+  background-color: #5e3193;
+  color: #fafdff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
   font-weight: bold;
 }
 
-.reviews-section input,
-.reviews-section select {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: large;
-}
-
-.reviews-section button {
-  font-size: larger;
+.add-song-form button[type='submit']:hover {
+  background-color: #211423;
 }
 
 .reviews-section h3 {
   margin-bottom: 10px;
 }
 
-.reviews-section .review-list {
+.review-list {
   list-style: none;
   padding: 0;
   color: #211423;
@@ -173,28 +123,28 @@ button:hover {
   font-weight: bolder;
 }
 
-.reviews-section .review-list .review {
+.review {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.reviews-section .review-list .review img {
+.review img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.reviews-section .review-list .review-content {
+.review-content {
   flex: 1;
 }
 
-.reviews-section .review-list .review-content p {
+.review-content p {
   margin: 0;
 }
 
-.reviews-section .review-list .username {
+.username {
   font-weight: lighter;
   color: #14171a;
   font-size: smaller;
@@ -208,7 +158,7 @@ button:hover {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 100%;
+  width: 100%; /* Ensure full width */
 }
 
 .actions {
@@ -249,28 +199,33 @@ button:hover {
   text-decoration: none;
 }
 
-.songs-section table {
+/* Styles for review form */
+.review-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.review-form input,
+.review-form select {
   width: 100%;
-  border-collapse: collapse;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: large;
 }
 
-.songs-section table td:last-child {
-  text-align: right;
+.review-form button {
+  background-color: #5e3193;
+  color: #fafdff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.songs-section h5 {
-  font-size: larger;
-}
-
-.reviews-section form {
-  display: flex;
-  align-items: center;
-}
-
-.reviews-section form label {
-  margin-right: 10px;
-}
-
-.reviews-section form select {
-  margin-right: 20px;
+.review-form button:hover {
+  background-color: #211423;
 }

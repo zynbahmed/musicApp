@@ -2,10 +2,11 @@ const express = require('express')
 const router = express.Router()
 const artistsCtrl = require('../controllers/artists')
 const albumsCtrl = require('../controllers/albums')
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
-router.get('/artists/new', artistsCtrl.newArtist)
+router.get('/artists/new', ensureLoggedIn, artistsCtrl.newArtist)
 router.get('/artists', artistsCtrl.index)
-router.post('/artists', artistsCtrl.createArtist)
+router.post('/artists', ensureLoggedIn, artistsCtrl.createArtist)
 router.post('/albums/:id', artistsCtrl.addToArtist)
 
 module.exports = router
