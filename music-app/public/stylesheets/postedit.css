@@ -1,14 +1,8 @@
-body {
-  background-color: #fafdff;
-  color: #211423;
-  font-family: Arial, sans-serif;
+
+form {
+  margin: auto auto;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
 
 input[type='text'] {
   width: 100%;
@@ -33,11 +27,6 @@ button[type='submit']:hover {
   background-color: #c52564;
 }
 
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  color: #64b5b4;
-}
 
 body {
   background-color: #fafdff;
