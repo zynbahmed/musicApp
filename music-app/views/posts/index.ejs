@@ -22,7 +22,7 @@
       </div>
     </div>
     <p class="time-ago"><%= getTimeAgo(post.createdAt) %></p>
-    <p class="poster-text"><%= post.poster %></p> <!-- Changed class to "poster-text" -->
+    <p class="poster-text"><%= post.poster %></p> 
 
     <form action="/posts/<%= post._id %>/like" method="POST" class="link-form">
       <div class="comment-react">

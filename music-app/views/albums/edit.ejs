@@ -1,8 +1,9 @@
 <%- include('../partials/header') %>
 <link rel="stylesheet" href="/stylesheets/editalbum.css">
-
+<div class="banner">
+    <img src="https://i.ibb.co/PDCgG4b/Screenshot-2024-02-14-at-9-21-41-PM.png" alt="banner">
+</div>
 <section>
-    <h2>Edit Album</h2>
     <form method="POST" action="/albums/<%= album._id %>?_method=PUT" enctype="multipart/form-data">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" value="<%= album.title %>" required>
@@ -23,10 +24,7 @@
         <label for="link">Spotify Link:</label>
         <input type="text" id="link" name="link" value="<%= album.link %>" required>
 
-        <!-- Add other fields or modify as needed -->
         <input type="file" name="image" id="imgInput" required>
-        <input type="submit" value="Add Album">
-
         <button type="submit">Update Album</button>
     </form>
 </section>

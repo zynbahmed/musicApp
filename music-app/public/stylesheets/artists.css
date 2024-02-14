@@ -20,6 +20,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
+  width: 975px;
 }
 
 .badge {
@@ -32,8 +33,8 @@ body {
 }
 
 #add-artist-form {
-  width: 42%;
-  margin-top: 20px;
+  width: 1000px;
+  margin-top: 10px;
 }
 
 #add-artist-form label {
@@ -60,6 +61,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
   font-size: 16px;
+  margin-bottom: 10%;
 }
 
 #add-artist-form input[type='submit']:hover {
