@@ -13,31 +13,31 @@ const songSchema = new Schema({
 });
 
 const albumSchema = new Schema({
-    title: { 
-        type: String, 
-        required: true 
+  title: { 
+    type: String, 
+    required: true 
+  },
+  artist: { 
+    type: Schema.Types.ObjectId, ref: 'Artist'
+  },
+  releaseYear: {
+    type: Number,
+    default: function() {
+    return new Date().getFullYear();
     },
-    artist: { 
-        type: Schema.Types.ObjectId, ref: 'Artist'
-     },
-    releaseYear: {
-      type: Number,
-      default: function() {
-        return new Date().getFullYear();
-      },
-      min: 1927
+    min: 1927
     },
-    genre: { 
-        type: String, 
-        required: true 
-    },
-    link: { 
-        type: String, 
-        required: true
-    },
-    songs: [songSchema],
-    reviews:  [{ type: Schema.Types.ObjectId, ref: 'Review' }],
-    image : String
+  genre: { 
+    type: String, 
+    required: true 
+  },
+  link: { 
+    type: String, 
+    required: true
+  },
+  songs: [songSchema],
+  reviews:  [{ type: Schema.Types.ObjectId, ref: 'Review' }],
+  image : String
   }, {
     timestamps: true
   });

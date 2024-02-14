@@ -15,7 +15,6 @@
   background-color: #ffffff;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 200px;
   text-align: center;
 }
 
@@ -29,11 +28,6 @@
   font-weight: bold;
   margin-bottom: 10px;
   color: #ffffff;
-}
-
-.artist-details {
-  margin-bottom: 5px;
-  color: #666666;
 }
 
 .artist-link {

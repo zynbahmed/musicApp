@@ -8,32 +8,27 @@ const showProfile = async (req, res) => {
     console.error(error);
     res.redirect('/users/profile');
   }
-};
+}
 
 const likeSong = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
     const songId = req.body.songId;
     const action = req.body.action;
-    console.log("req.body",req.body)
-    console.log("songId",songId)
-    // console.log('Received songId:', songId);
-    // console.log('Action:', action);
     const song= await Album.findOne({ 'songs._id': songId }, { 'songs.$': 1 }).populate('songs')
     const songName=song.songs[0].name
     if (action === 'add') {
-    if (!user.likedSongs.includes(song.songs[0].name)){
-    console.log("song",song.songs[0].name)
-    user.likedSongs.push(song.songs[0].name)
-    await user.save()}
-    else {
-      console.log('you add this before')
-    }} else if (action === 'remove') {
+      if (!user.likedSongs.includes(songName)){
+        user.likedSongs.push(songName)
+        await user.save()
+      }else {
+      //console.log('you add this before')
+      }
+    }else if (action === 'remove') {
       user.likedSongs = user.likedSongs.filter(song => !song.includes(songName));
-       await user.save()
+      await user.save()
     }
-
-  } catch (error) {
+  }catch (error) {
     console.error(error);
   }
   res.redirect('/users/profile')
@@ -41,19 +36,18 @@ const likeSong = async (req, res) => {
 
 const updaterole =async (req,res) => {
   try {
-  const user = await User.findById(req.params.id)
-  user.role=req.body.role
-  user.firstlog = false
-  await user.save()
-  res.redirect('/albums')
+    const user = await User.findById(req.params.id)
+    user.role=req.body.role
+    user.firstlog = false
+    await user.save()
+    res.redirect('/albums')
   }catch (error){
     console.error(error);
     res.redirect('/');
   }
-  
 }
 module.exports = {
   showProfile,
   likeSong,
   updaterole
-};
+}
