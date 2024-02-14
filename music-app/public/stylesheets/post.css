@@ -126,7 +126,7 @@ section img.avatar {
 }
 
 .comment-button:hover {
-  background-color: #5e3193;
+  background-color: #c52564;
 }
 .post-form-container {
   display: flex;
@@ -157,5 +157,5 @@ section img.avatar {
 }
 
 #post-button:hover {
-  background-color: #5e3193;
+  background-color: #c52564;
 }
