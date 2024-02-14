@@ -9,45 +9,41 @@
         <button type="submit" class="delete-button">Delete</button>
       </form>
     </div>
-      </div>
   <% } %>
 
-  <div class="detail">
-      <div class="label">Title:</div>
-      <div class="value"><%= album.title %></div>
-  </div>
-
-  <div class="detail">
-      <div class="label">Artist:</div>
-      <div class="value">
-          <a href="/albums/artists/<%= album.artist._id %>/albums">
-              <%= album.artist ? album.artist.name : 'Unknown Artist' %>
-          </a>
-      </div>
-  </div>
-
-  <div class="detail">
-      <div class="label">Release Year:</div>
-      <div class="value"><%= album.releaseYear %></div>
-  </div>
-
-  <div class="detail">
-      <div class="label">Genre:</div>
-      <div class="value"><%= album.genre %></div>
-  </div>
-
-  <div class="detail">
-      <div class="label">Listen on Spotify:</div>
-      <div class="value">
-          <button style="background-color:#1DB954; border: none">
-              <a href="<%= album.link %>">Listen on Spotify</a>
-          </button>
-      </div>
-  </div>
-
   <div class="picture">
-      <img src="/images/<%= album.image %>" alt="cover">
-  </div>
+    <img src="/images/<%= album.image %>" alt="cover">
+    <div class="details-right">
+        <div class="detail">
+            <div class="label">Title:</div>
+            <div class="value"><%= album.title %></div>
+        </div>
+        <div class="detail">
+            <div class="label">Artist:</div>
+            <div class="value">
+                <a href="/albums/artists/<%= album.artist._id %>/albums">
+                    <%= album.artist ? album.artist.name : 'Unknown Artist' %>
+                </a>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="label">Release Year:</div>
+            <div class="value"><%= album.releaseYear %></div>
+        </div>
+        <div class="detail">
+            <div class="label">Genre:</div>
+            <div class="value"><%= album.genre %></div>
+        </div>
+        <div class="detail">
+            <div class="label">Listen:</div>
+            <div class="value">
+                <button style="background-color:#1DB954; border: none">
+                    <a href="<%= album.link %>">Listen on Spotify</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 </section>
 
 <section class="songs-section">
