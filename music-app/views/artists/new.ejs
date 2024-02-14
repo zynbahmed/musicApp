@@ -1,7 +1,10 @@
 <%- include('../partials/header') %>
 <link rel="stylesheet" href="/stylesheets/artists.css">
 
-<div>Before adding, please ensure that the Artist is not in the following list:</div>
+<div class="banner">
+  <img src="https://i.ibb.co/GprCwQ1/Screenshot-2024-02-14-at-12-11-24-PM.png" alt="banner">
+</div>
+
 <section id="badge-container">
   <% artists.forEach(function(p) { %>
     <article class="badge"><%= p.name %></article>
@@ -10,7 +13,7 @@
 
 <form id="add-artist-form" action="/artists" method="POST">
   <label>Name:</label>
-  <input type="text" name="name">
+  <input type="text" placeholder="Type Artist's Name" name="name">
   <input type="submit" value="Add Artist">
 </form>
 

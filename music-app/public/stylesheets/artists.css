@@ -3,6 +3,7 @@ body {
   color: #211423;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .container {
@@ -31,6 +32,7 @@ body {
 }
 
 #add-artist-form {
+  width: 42%;
   margin-top: 20px;
 }
 
@@ -62,4 +64,19 @@ body {
 
 #add-artist-form input[type='submit']:hover {
   background-color: #c52564;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: auto;
+  padding: 1%;
+}
+
+.banner img {
+  display: block;
+  width: 55%;
+  height: auto;
 }
