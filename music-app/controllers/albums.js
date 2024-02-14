@@ -3,21 +3,17 @@ const Artist = require('../models/artist');
 const Review = require('../models/review');
 
 const index = async (req, res) => {
-    const albums = await Album.find({}).populate('artist', 'name').sort('title');
-    // console.log(albums)
+    const albums = await Album.find({}).populate('artist', 'name');
     res.render('albums/index', { title: 'All Albums', albums });
 }
 
 const show = async (req, res) => {
-    const album = await Album.findById(req.params.id)
-      .populate('artist')
-      .populate('reviews');
+    const album = await Album.findById(req.params.id).populate('artist').populate('reviews');
     const allrating = album.reviews.map(review => review.rating)
     const sum = allrating.reduce((accumulator, val) => {
         return accumulator + val;
     }, 0);
     const averageRating= Math.round(sum/allrating.length) 
-
     res.render('albums/show', { title: 'Album Detail', album ,averageRating });
 }
 
@@ -32,12 +28,9 @@ const create = async (req, res) => {
     }
     const { image } = req.files
     req.body.image = image.name
-    console.log(req.files);
     image.mv('public/images/' + image.name)
-
     try {
         const album = await Album.create(req.body);
-        // console.log(album)
         res.redirect('/albums');  
     } catch (err) {
         console.log(err);
@@ -47,25 +40,24 @@ const create = async (req, res) => {
 
 const albumsByArtist = async (req, res) => {
     try {
-      const artistId = req.params.artistId;
-      const artist = await Artist.findById(artistId);
-      const albums = await Album.find({ artist: artistId }).populate('artist');
-      
-      res.render('albums/albumsByArtist', { title: `Albums by ${artist.name}`, albums });
+        const artistId = req.params.artistId;
+        const artist = await Artist.findById(artistId);
+        const albums = await Album.find({ artist: artistId }).populate('artist');
+        res.render('albums/albumsByArtist', { title: `Albums by ${artist.name}`, albums });
     } catch (error) {
-      console.error(error);
-      res.redirect('/'); // Redirect to a relevant page in case of an error
+        console.error(error);
+        res.redirect('/')
     }
-  };
+}
 
-  const editAlbum = async (req, res) => {
+const editAlbum = async (req, res) => {
     try {
         const album = await Album.findById(req.params.id).populate('artist');
         const artists = await Artist.find();
         res.render('albums/edit', { title: 'Edit Album', album, artists });
     } catch (error) {
         console.error(error);
-        res.redirect('/albums'); // Redirect to a relevant page in case of an error
+        res.redirect('/albums')
     }
 }
 
@@ -80,12 +72,12 @@ const updateAlbum = async (req, res) => {
 }
 
 const deleteAlbum = async (req, res) => {
-  try {
-      await Album.findByIdAndDelete(req.params.id);
-      res.redirect('/albums');
-  } catch (error) {
-      console.error(error);
-      res.redirect(`/albums/${req.params.id}`);
+    try {
+        await Album.findByIdAndDelete(req.params.id);
+        res.redirect('/albums');
+    } catch (error) {
+        console.error(error);
+        res.redirect(`/albums/${req.params.id}`);
   }
 }
 
