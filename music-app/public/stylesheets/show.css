@@ -1,3 +1,4 @@
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
   color: #211423;
@@ -8,13 +9,14 @@ body {
 a {
   color: #5e3193;
   text-decoration: none;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
+/* Album details styles */
 .album-details {
   background-color: #fafdff;
   padding: 20px;
@@ -28,35 +30,39 @@ a:hover {
   font-size: larger;
 }
 
-.detail {
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.label {
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.picture {
+.album-details .picture {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   position: relative;
 }
 
-.picture img {
+.album-details .picture img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.details-right {
+.album-details .details-right {
   margin-left: 20px;
 }
 
-.add-album-link {
+.album-details .detail {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.album-details .label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.album-details .value {
+  color: #211423;
+}
+
+.album-details .add-album-link {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -65,6 +71,7 @@ a:hover {
   z-index: 1;
 }
 
+/* Songs section styles */
 .songs-section,
 .reviews-section {
   background-color: #fafdff;
@@ -72,6 +79,40 @@ a:hover {
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.songs-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.songs-section th,
+.songs-section td {
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+  text-align: left;
+}
+
+.songs-section th {
+  font-weight: bold;
+}
+
+.songs-section button {
+  background-color: #5e3193;
+  color: #fafdff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.songs-section button:hover {
+  background-color: #211423;
+}
+
+.songs-section h5 {
+  margin: 0;
 }
 
 .add-song-form {
@@ -111,11 +152,46 @@ a:hover {
   background-color: #211423;
 }
 
+/* Reviews section styles */
+.reviews-section form {
+  margin-bottom: 20px;
+}
+
+.reviews-section label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.reviews-section input,
+.reviews-section select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.reviews-section button {
+  background-color: #5e3193;
+  color: #fafdff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.reviews-section button:hover {
+  background-color: #211423;
+}
+
 .reviews-section h3 {
   margin-bottom: 10px;
 }
 
-.review-list {
+.reviews-section .review-list {
   list-style: none;
   padding: 0;
   color: #211423;
@@ -123,34 +199,35 @@ a:hover {
   font-weight: bolder;
 }
 
-.review {
+.reviews-section .review-list .review {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.review img {
+.reviews-section .review-list .review img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.review-content {
+.reviews-section .review-list .review-content {
   flex: 1;
 }
 
-.review-content p {
+.reviews-section .review-list .review-content p {
   margin: 0;
 }
 
-.username {
+.reviews-section .review-list .username {
   font-weight: lighter;
   color: #14171a;
   font-size: smaller;
   font-family: monospace;
 }
 
+/* Admin actions styles */
 .admin-actions {
   display: flex;
   align-items: center;
@@ -199,33 +276,31 @@ a:hover {
   text-decoration: none;
 }
 
-/* Styles for review form */
-.review-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.review-form input,
-.review-form select {
+/* Move "Add to Liked Songs" button to the far right */
+.songs-section table {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: large;
+  border-collapse: collapse;
 }
 
-.review-form button {
-  background-color: #5e3193;
-  color: #fafdff;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-weight: bold;
+.songs-section table td:last-child {
+  text-align: right;
 }
 
-.review-form button:hover {
-  background-color: #211423;
+/* Make "Songs" text bigger */
+.songs-section h5 {
+  font-size: larger;
+}
+
+/* Display content and rating in the same row */
+.reviews-section form {
+  display: flex;
+  align-items: center;
+}
+
+.reviews-section form label {
+  margin-right: 10px;
+}
+
+.reviews-section form select {
+  margin-right: 20px;
 }
