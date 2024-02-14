@@ -1,32 +1,26 @@
-/* usertype.css */
-
-/* Style for the form container */
 form {
-    margin: auto auto;
-  }
-  
-  /* Style for the select element */
-  select {
-    padding: 10px;
-    font-size: 24px;
-    border: 1px solid #ccc;
-    font-family: "Times New Roman", serif;
-    border-radius: 4px;
-  }
-  
-  /* Style for the submit button */
-  button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 21px;
-    font-family: "Times New Roman", serif;
-    background-color: #5e3193;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+  margin: auto auto;
+}
 
-  button[type="submit"]:hover {
-    background-color:#c6aec8;
-  }
-  
+select {
+  padding: 10px;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  font-family: 'Times New Roman', serif;
+  border-radius: 4px;
+}
+
+button[type='submit'] {
+  padding: 10px 20px;
+  font-size: 21px;
+  font-family: 'Times New Roman', serif;
+  background-color: #5e3193;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type='submit']:hover {
+  background-color: #c6aec8;
+}

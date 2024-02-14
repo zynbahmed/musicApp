@@ -25,6 +25,7 @@ select {
   background-color: #fafdff;
   color: #211423;
   box-sizing: border-box;
+  font-size: 25px;
 }
 
 input[type='submit'] {
