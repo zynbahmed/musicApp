@@ -1,4 +1,3 @@
-/* Global styles */
 body {
   font-family: Arial, sans-serif;
   color: #211423;
@@ -16,7 +15,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Album details styles */
 .album-details {
   background-color: #fafdff;
   padding: 20px;
@@ -71,7 +69,6 @@ a:hover {
   z-index: 1;
 }
 
-/* Songs section styles */
 .songs-section,
 .reviews-section {
   background-color: #fafdff;
@@ -97,7 +94,6 @@ a:hover {
   font-weight: bold;
 }
 
-/* Common button styles */
 button[type='submit'],
 button {
   background-color: #5e3193;
@@ -114,7 +110,6 @@ button:hover {
   background-color: #211423;
 }
 
-/* Add song form styles */
 .add-song-form {
   margin-top: 20px;
 }
@@ -139,10 +134,9 @@ button:hover {
 }
 
 .add-song-form button[type='submit'] {
-  font-size: larger; /* Example of overriding the common button styles */
+  font-size: larger;
 }
 
-/* Reviews section styles */
 .reviews-section form {
   margin-bottom: 20px;
 }
@@ -164,7 +158,7 @@ button:hover {
 }
 
 .reviews-section button {
-  font-size: larger; /* Example of overriding the common button styles */
+  font-size: larger;
 }
 
 .reviews-section h3 {
