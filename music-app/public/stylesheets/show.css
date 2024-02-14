@@ -97,7 +97,9 @@ a:hover {
   font-weight: bold;
 }
 
-.songs-section button {
+/* Common button styles */
+button[type='submit'],
+button {
   background-color: #5e3193;
   color: #fafdff;
   border: none;
@@ -107,14 +109,12 @@ a:hover {
   font-weight: bold;
 }
 
-.songs-section button:hover {
+button[type='submit']:hover,
+button:hover {
   background-color: #211423;
 }
 
-.songs-section h5 {
-  margin: 0;
-}
-
+/* Add song form styles */
 .add-song-form {
   margin-top: 20px;
 }
@@ -139,17 +139,7 @@ a:hover {
 }
 
 .add-song-form button[type='submit'] {
-  background-color: #5e3193;
-  color: #fafdff;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.add-song-form button[type='submit']:hover {
-  background-color: #211423;
+  font-size: larger; /* Example of overriding the common button styles */
 }
 
 /* Reviews section styles */
@@ -174,17 +164,7 @@ a:hover {
 }
 
 .reviews-section button {
-  background-color: #5e3193;
-  color: #fafdff;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.reviews-section button:hover {
-  background-color: #211423;
+  font-size: larger; /* Example of overriding the common button styles */
 }
 
 .reviews-section h3 {
@@ -227,7 +207,6 @@ a:hover {
   font-family: monospace;
 }
 
-/* Admin actions styles */
 .admin-actions {
   display: flex;
   align-items: center;
@@ -235,7 +214,7 @@ a:hover {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 100%; /* Ensure full width */
+  width: 100%;
 }
 
 .actions {
@@ -276,7 +255,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* Move "Add to Liked Songs" button to the far right */
 .songs-section table {
   width: 100%;
   border-collapse: collapse;
@@ -286,12 +264,10 @@ a:hover {
   text-align: right;
 }
 
-/* Make "Songs" text bigger */
 .songs-section h5 {
   font-size: larger;
 }
 
-/* Display content and rating in the same row */
 .reviews-section form {
   display: flex;
   align-items: center;
