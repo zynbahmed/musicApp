@@ -3,6 +3,7 @@ body {
   color: #211423;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .container {
@@ -31,6 +32,7 @@ body {
 }
 
 #add-artist-form {
+  width: 42%;
   margin-top: 20px;
 }
 
