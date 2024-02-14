@@ -6,12 +6,15 @@ var logger = require('morgan')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const passport = require('passport')
+const fileUpload = require('express-fileupload')
 
 var indexRouter = require('./routes/index')
 var albumsRouter = require('./routes/albums')
 const artistsRouter = require('./routes/artists')
 const songsRouter = require('./routes/songs')
 const reviewRouter = require('./routes/reviews')
+const axios = require('axios');
+
 const usersRouter = require('./routes/users')
 
 var app = express()
@@ -26,6 +29,7 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(fileUpload())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(methodOverride('_method'))
 app.use(session({

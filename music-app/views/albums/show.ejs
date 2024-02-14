@@ -2,17 +2,22 @@
 <link rel="stylesheet" href="/stylesheets/show.css">
 
 <section class="album-details">
-  <% if(user) { %>
+
+    <% if (user && user.role==="admin" ) { %>
+      <a href="/albums/new">Add Album</a>
     <div class="actions">
       <a href="/albums/<%= album._id %>/edit">Edit</a>
       <form method="POST" action="/albums/<%= album._id %>?_method=DELETE">
         <button type="submit">Delete</button>
       </form>
     </div>
-  <% } %>
+    <% } %>
+
   <div class="detail">
+    <div><img src="/images/<%= album.image %>" alt="cover"></div>
     <div class="label">Title:</div>
     <div class="value"><%= album.title %></div>
+
   </div>
   <div class="detail">
     <div class="label">Artist:</div>
@@ -48,6 +53,16 @@
         <% album.songs.forEach((s) => { %>
           <tr>
             <td><%= s.name %></td>
+            <td>
+              <form method="POST" action="/users/like-song">
+                <input type="hidden" name="songId" value="<%= s._id %>">
+                <% if (user && !user.likedSongs.includes(s.name)) { %>
+                  <button type="submit" name="action" value="add">Add to Liked Songs</button>
+                <% } else { %>
+                  <button type="submit" name="action" value="remove">Remove from Liked Songs</button>
+                <% } %> 
+              </form>
+            </td>
           </tr>
         <% }); %>
       </tbody>
@@ -56,7 +71,7 @@
     <h5>No Songs Yet</h5>
   <% } %>
 
-  <% if(user) { %>
+  <% if(user &&  user.role==="admin") { %>
     <div class="add-song-form">
       <h2>Add Song</h2>
       <form method="POST" action="/albums/<%= album._id %>/songs">

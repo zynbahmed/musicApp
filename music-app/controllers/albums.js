@@ -3,8 +3,8 @@ const Artist = require('../models/artist');
 const Review = require('../models/review');
 
 const index = async (req, res) => {
-    const albums = await Album.find({}).populate('artist', 'name');
-    console.log(albums)
+    const albums = await Album.find({}).populate('artist', 'name').sort('title');
+    // console.log(albums)
     res.render('albums/index', { title: 'All Albums', albums });
 }
 
@@ -30,9 +30,14 @@ const create = async (req, res) => {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     }
+    const { image } = req.files
+    req.body.image = image.name
+    console.log(req.files);
+    image.mv('public/images/' + image.name)
+
     try {
         const album = await Album.create(req.body);
-        console.log(album)
+        // console.log(album)
         res.redirect('/albums');  
     } catch (err) {
         console.log(err);
