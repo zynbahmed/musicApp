@@ -2,10 +2,10 @@
 
 <section>
   <h2>User Profile - <%= user.name %> </h2>
-  <h3>Liked Songs</h3>
+  <h3><strong>Liked Songs:</strong></h3>
   <% if (user.likedSongs.length) { %>
       <% user.likedSongs.forEach((song) => { %>
-          <h4><%= song %></h4>
+          <p><%= song %></p>
       <% }); %>
   <% } else { %>
     <p>No liked songs yet.</p>

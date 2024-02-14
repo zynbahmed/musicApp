@@ -2,7 +2,7 @@ const Album = require('../models/album');
 const Artist = require('../models/artist');
 
 const index = async (req, res) => {
-    const albums = await Album.find({}).populate('artist', 'name');
+    const albums = await Album.find({}).sort('title').populate('artist', 'name');
     res.render('albums/index', { title: 'All Albums', albums });
 }
 
