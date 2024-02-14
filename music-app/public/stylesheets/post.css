@@ -128,26 +128,34 @@ section img.avatar {
 .comment-button:hover {
   background-color: #5e3193;
 }
+.post-form-container {
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+  margin-bottom: 20px;
+}
 
 .post-input {
-  width: calc(100% - 110px);
+  width: 670px; /* Set the width as desired */
+  height: 70px;
   padding: 10px;
   border: 1px solid #e1e8ed;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 10px 0 0 10px;
   color: #14171a;
+  font-size: x-large;
+  text-align: center;
 }
 
 #post-button {
-  background-color: #5e3193;
+  background-color: #64b5b4;
   color: #fafdff;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid #e1e8ed;
+  border-radius: 0 10px 10px 0;
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 10px;
   font-weight: bold;
+  height: 90px;
 }
 
 #post-button:hover {
-  background-color: #211423;
+  background-color: #5e3193;
 }
