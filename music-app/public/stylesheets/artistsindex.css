@@ -49,3 +49,18 @@
 .artist-link:hover {
   background-color: #c52564;
 }
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: auto;
+  padding: 1%;
+}
+
+.banner img {
+  display: block;
+  width: 55%;
+  height: auto;
+}
