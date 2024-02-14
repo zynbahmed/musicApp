@@ -21,9 +21,14 @@
         <div class="detail">
             <div class="label">Artist:</div>
             <div class="value">
+                <% if (user) { %>
                 <a href="/albums/artists/<%= album.artist._id %>/albums">
                     <%= album.artist ? album.artist.name : 'Unknown Artist' %>
                 </a>
+                <% } else { %>
+                    <%= album.artist ? album.artist.name : 'Unknown Artist' %>
+                <% } %>
+
             </div>
         </div>
         <div class="detail">
@@ -57,14 +62,18 @@
                     <tr>
                         <td><%= s.name %></td>
                         <td>
+                            <% if (user) { %>
                             <form method="POST" action="/users/like-song">
                                 <input type="hidden" name="songId" value="<%= s._id %>">
+                                
                                 <% if (user && !user.likedSongs.includes(s.name)) { %>
                                     <button type="submit" name="action" value="add">Add to Liked Songs</button>
                                 <% } else { %>
                                     <button type="submit" name="action" value="remove">Remove from Liked Songs</button>
                                 <% } %>
                             </form>
+                            <% } %>
+                            
                         </td>
                     </tr>
                 <% }); %>
