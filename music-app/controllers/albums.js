@@ -63,6 +63,9 @@ const editAlbum = async (req, res) => {
 
 const updateAlbum = async (req, res) => {
     try {
+        const { image } = req.files
+    req.body.image = image.name
+    image.mv('public/images/' + image.name)
         const album = await Album.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.redirect(`/albums/${album._id}`);
     } catch (error) {
