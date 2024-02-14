@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const artistsCtrl = require('../controllers/artists')
-const albumsCtrl = require('../controllers/albums')
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 router.get('/artists/new', ensureLoggedIn, artistsCtrl.newArtist)
