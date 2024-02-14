@@ -23,6 +23,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   width: 40%;
+  position: relative;
 }
 
 .detail {
@@ -39,7 +40,17 @@ a:hover {
   color: #211423;
 }
 
-.songs-section {
+.add-album-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.songs-section,
+.reviews-section {
   background-color: #fafdff;
   padding: 20px;
   margin-bottom: 20px;
@@ -67,6 +78,7 @@ a:hover {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: large;
+  margin-bottom: 10px;
 }
 
 .add-song-form button[type='submit'] {
@@ -81,14 +93,6 @@ a:hover {
 
 .add-song-form button[type='submit']:hover {
   background-color: #211423;
-}
-
-.reviews-section {
-  background-color: #fafdff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .reviews-section h3 {
@@ -129,4 +133,50 @@ a:hover {
   color: #14171a;
   font-size: smaller;
   font-family: monospace;
+}
+.admin-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100%; /* Ensure full width */
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.actions a,
+.actions button {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.actions a.edit-link {
+  background-color: #5e3193;
+}
+.actions a.edit-link:hover {
+  background-color: #929fac;
+  color: #fff;
+  text-decoration: none;
+}
+
+.actions a.delete-button {
+  background-color: #c74f4b;
+}
+
+.actions a.delete-button:hover {
+  background-color: #929fac;
+  color: #fff;
+  text-decoration: none;
 }
