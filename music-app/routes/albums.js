@@ -1,13 +1,15 @@
 var express = require('express');
 var router = express.Router();
-const albumsCtrl = require('../controllers/albums');
-	
+const albumsCtrl = require('../controllers/albums')
+
 // GET /albums
-router.get('/', albumsCtrl.index);
+router.get('/', albumsCtrl.index)
+
 // GET /albums/new
-router.get('/new', albumsCtrl.newAlbum);
+router.get('/new', albumsCtrl.newAlbum)
+
 // GET /albums/:id (show functionality) MUST be below new route
-router.get('/:id', albumsCtrl.show);
+router.get('/:id', albumsCtrl.show)
 
 router.get('/artists/:artistId/albums', albumsCtrl.albumsByArtist);
 
@@ -23,5 +25,5 @@ router.put('/:id', albumsCtrl.updateAlbum);
 // DELETE /albums/:id
 router.delete('/:id', albumsCtrl.deleteAlbum);
 
-	
+
 module.exports = router;
