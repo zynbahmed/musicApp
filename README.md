@@ -55,9 +55,10 @@
     <img src="screenshots/albumsAll.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/albumShow2.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/albumAdd.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/albumEdit.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/artists.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/artistsAdd.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/posts.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/postsEdit.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="screenshots/profile.png" height="500" />
   </pre>
 </div>
+
 ***
 ### ***What Have I learned***
-Through the development of this project using technologies like EJS, CSS, JavaScript, Express, and Mongoose, We have gained a deep understanding of creating dynamic web applications. The functionality implemented, such as user-specific roles granting unique privileges, admin controls for album and artist management, and user capabilities for posts and reviews, showcases our proficiency in designing a feature-rich platform. This experience has honed our skills in combining frontend and backend technologies to deliver an engaging and functional website.
+Through the development of this project using technologies like EJS, CSS, JavaScript, Express, and Mongoose, We have gained a deep understanding of creating dynamic web applications. The functionality implemented, such as user-specific roles granting unique privileges, admin controls for album and artist management, and user capabilities for posts and reviews, showcases our proficiency in designing a feature-rich platform. This experience has honed our skills in combining frontend and backend technologies to deliver an engaging and functional website.<br>
 Collaborating with a cohesive team has been integral to the success of this project. The collective understanding of project objectives and seamless communication among team members ensured a harmonious development process. Everyone contributed to defining and implementing the required functionalities, resulting in a shared sense of accomplishment. The positive atmosphere throughout the development cycle reflects not only technical proficiency but also effective teamwork, highlighting the importance of collaboration in delivering a satisfying and well-executed web platform.
 
 ***
@@ -71,8 +72,8 @@ Collaborating with a cohesive team has been integral to the success of this proj
 
 ### ***Credits***
 
-[SEI-08 Lessons and Labs of Unit 2](https://github.com/SEI-08-Bahrain/class_wiki?tab=readme-ov-file)
-[Input Styling](https://uiverse.io/inputs)
+[SEI-08 Lessons and Labs of Unit 2](https://github.com/SEI-08-Bahrain/class_wiki?tab=readme-ov-file) |
+[Input Styling](https://uiverse.io/inputs) |
 [Flexboxes and Grids Styling](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 ***
