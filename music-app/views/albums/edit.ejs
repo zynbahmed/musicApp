@@ -3,7 +3,7 @@
 
 <section>
     <h2>Edit Album</h2>
-    <form method="POST" action="/albums/<%= album._id %>?_method=PUT">
+    <form method="POST" action="/albums/<%= album._id %>?_method=PUT" enctype="multipart/form-data">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" value="<%= album.title %>" required>
         
@@ -24,6 +24,8 @@
         <input type="text" id="link" name="link" value="<%= album.link %>" required>
 
         <!-- Add other fields or modify as needed -->
+        <input type="file" name="image" id="imgInput" required>
+        <input type="submit" value="Add Album">
 
         <button type="submit">Update Album</button>
     </form>
