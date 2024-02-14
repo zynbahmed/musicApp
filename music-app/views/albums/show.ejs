@@ -79,7 +79,7 @@
             <h2>Add Song</h2>
             <form method="POST" action="/albums/<%= album._id %>/songs">
                 <label for="songName">Song Name:</label>
-                <input type="text" id="songName" name="name">
+                <input type="text" id="songName" placeholder="Enter Song's Title" name="name">
                 <button type="submit">Add Song</button>
             </form>
         </div>
@@ -90,7 +90,7 @@
     <% if (user) { %>
         <form action="/albums/<%= album._id %>/reviews" method="POST">
             <label>Content</label>
-            <input name="content" type="text">
+            <input name="content" placeholder="Enter Your Review" type="text">
             <label>Rating</label>
             <select name="rating">
                 <option value=1>1</option>
