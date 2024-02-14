@@ -57,14 +57,18 @@
                     <tr>
                         <td><%= s.name %></td>
                         <td>
+                            <% if (user) { %>
                             <form method="POST" action="/users/like-song">
                                 <input type="hidden" name="songId" value="<%= s._id %>">
+                                
                                 <% if (user && !user.likedSongs.includes(s.name)) { %>
                                     <button type="submit" name="action" value="add">Add to Liked Songs</button>
                                 <% } else { %>
                                     <button type="submit" name="action" value="remove">Remove from Liked Songs</button>
                                 <% } %>
                             </form>
+                            <% } %>
+                            
                         </td>
                     </tr>
                 <% }); %>

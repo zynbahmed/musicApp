@@ -75,10 +75,10 @@ const like =async (req, res) => {
       await post.save()
     } res.redirect('/posts')
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.log(err)
+    res.redirect('/')
   }
 }
-
 
 const  addComment  =async (req,res) =>{
   const post = await Post.findById(req.params.id).populate('comment')
