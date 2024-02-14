@@ -1,11 +1,12 @@
 <%- include('../partials/header') %>
 <link rel="stylesheet" type="text/css" href="/path/to/post.css">
 
-<form action="/posts"  method="POST" id ="post-form">
-  <input type="text" name="poster" placeholder="Write your post here" class="post-input">
-  <button type="submit" id="post-button">POST</button>
-</form>
-
+<div class="post-form-container">
+  <form action="/posts" method="POST" id="post-form">
+    <input type="text" name="poster" placeholder="Write your post here" class="post-input">
+    <button type="submit" id="post-button">POST</button>
+  </form>
+</div>
 <% posts.forEach(post => { %> 
   <section>
     <img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" class="avatar" >
