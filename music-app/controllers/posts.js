@@ -5,7 +5,8 @@ const Comment= require('../models/comment')
 const index = async (req, res) => {
   try {
     const posts = await Post.find({}).populate('comment')
-    res.render('posts/index', { posts })
+    const title="POSTS"
+    res.render('posts/index', { posts,title })
   } catch (error) {
     console.log(error)
   }
@@ -38,8 +39,9 @@ const deletePost = async (req,res) => {
 
 const edit = async (req,res) => {
   try {
+    const title="Edit Post"
     const post = await Post.findById(req.params.id)
-    res.render('posts/edit',{post})
+    res.render('posts/edit',{post , title})
   }catch(error){
     console.log (error)
     res.redirect('/')

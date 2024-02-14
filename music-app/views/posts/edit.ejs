@@ -1,6 +1,10 @@
+<%- include('../partials/header') %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/postedit.css">
 
 <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
     <input name="poster" type="text" value="<%= post.poster %>">
     <button type="submit">Edit</button>
 
 </form>
+
+<%- include('../partials/footer') %>
